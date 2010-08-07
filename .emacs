@@ -4,7 +4,7 @@
 (setq load-path (cons "/home/danking/.emacs.d" load-path))
 
 (require 'dot-emacs-utils)
-
+;; la te dah
 (require 'macros)
 (require 'interface)
 (require 'languages)
