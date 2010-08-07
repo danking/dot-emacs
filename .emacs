@@ -4,15 +4,13 @@
 (setq load-path (cons "/home/danking/.emacs.d" load-path))
 
 (require 'dot-emacs-utils)
-;; la te dah
+
 (require 'macros)
 (require 'interface)
 (require 'languages)
 (require 'shellfixes)
+(require 'coding-utilities)
 (require 'emacs-utilities)
-
-(require 'magit)
-
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
