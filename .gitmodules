@@ -4,3 +4,6 @@
 [submodule "magit"]
 	path = magit
 	url = http://github.com/philjackson/magit.git
+[submodule "org-mode"]
+	path = org-mode
+	url = git://repo.or.cz/org-mode.git
