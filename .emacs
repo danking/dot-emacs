@@ -10,6 +10,7 @@
 (require 'languages)
 (require 'shellfixes)
 (require 'coding-utilities)
+(require 'org-mode-setup)
 (require 'emacs-utilities)
 
 (custom-set-variables
