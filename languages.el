@@ -12,6 +12,12 @@
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 (add-sexp-languages-hook (lambda () (paredit-mode +1)))
+(add-hook 'scheme-mode-hook (lambda ()
+                              ; convert lambdas and arrows to Unicode
+                              (define-abbrev-table 'global-abbrev-table
+                                '(("lambda" "λ" nil 0)
+                                  ("->" "→" nil 0)))
+                              (abbrev-mode t)))
 
 ;; ElDoc
 (require 'eldoc)
