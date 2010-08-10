@@ -3,6 +3,7 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
+(global-set-key (kbd "C-c r") 'org-remember)
 (add-hook 'org-mode-hook
           (lambda ()
             (local-set-key (kbd "M-n") 'org-metaright)
