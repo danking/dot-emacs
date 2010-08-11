@@ -24,8 +24,10 @@
 (setq-default transient-mark-mode t)
 (column-number-mode t)
 
-;; make return useful
+;; useful key bindings
 (global-set-key [\\r] 'newline-and-indent)
+(global-set-key (kbd "C-c w") 'clipboard-kill-ring-save)
+(global-set-key (kbd "C-c y") 'clipboard-yank)
 
 ;; kill that pesky start screen
 (setq inhibit-splash-screen t)

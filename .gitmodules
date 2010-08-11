@@ -10,3 +10,6 @@
 [submodule "malabar-mode"]
 	path = malabar-mode
 	url = git://github.com/espenhw/malabar-mode.git
+[submodule "org-mode"]
+	path = org-mode
+	url = git://repo.or.cz/org-mode.git
