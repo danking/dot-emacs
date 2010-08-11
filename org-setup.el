@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/.emacs.d/org-mode/lisp/")
 (require 'org-install)
 
 ;; The following lines are always needed.  Choose your own keys.
@@ -11,10 +12,8 @@
             (local-set-key (kbd "M-n") 'org-metaright)
             (local-set-key (kbd "M-p") 'org-metaleft)))
 
-(setq org-default-notes-file (concat org-directory "/.notes.org"))
+(setq org-default-notes-file (concat org-directory "/notes.org"))
 (global-set-key (kbd "C-c c") 'org-capture)
-
-(add-to-list 'load-path "~/.emacs.d/org-mode/lisp")
 
 ;; capture templates
 ;; (defun music-remember ()
