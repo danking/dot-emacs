@@ -35,11 +35,13 @@
 (require 'ruby-stuff)
 
 ;;; Java
-(require 'java-complete)
+(require 'java-complete) ;; TODO: make this actually work right
 (require 'java-mode-indent-annotations)
 (add-hook 'java-mode-hook 'java-mode-indent-annotations-setup)
 (add-hook 'java-mode-hook (lambda () (local-set-key (kbd "C-<tab>")
                                                     'java-complete)))
+
+(require 'cedet)
 
 ;;; CSS
 (setq css-indent-offset 2)
