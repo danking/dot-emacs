@@ -55,4 +55,4 @@
 ;;     "COMPANY"))
 
 
-(provide 'org-mode-setup)
+(provide 'org-setup)
