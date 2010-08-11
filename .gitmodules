@@ -4,3 +4,9 @@
 [submodule "magit"]
 	path = magit
 	url = http://github.com/philjackson/magit.git
+[submodule "cedet"]
+	path = cedet
+	url = http://github.com/emacs-pkg-mirrors/cedet.git
+[submodule "malabar-mode"]
+	path = malabar-mode
+	url = git://github.com/espenhw/malabar-mode.git
