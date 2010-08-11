@@ -1,6 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/org-mode/lisp/")
 (require 'org-install)
-
+(require 'org)
 ;; The following lines are always needed.  Choose your own keys.
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (global-set-key (kbd "C-c l") 'org-store-link)
