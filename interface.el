@@ -31,6 +31,13 @@
 (global-set-key (kbd "C-<pause>") 'previous-buffer)
 (global-set-key (kbd "M-<pause>") 'next-buffer)
 
+;; Higlight symbol
+(require 'highlight-symbol)
+(global-set-key [(control f3)] 'highlight-symbol-at-point)
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [(shift f3)] 'highlight-symbol-prev)
+(global-set-key [(meta f3)] 'highlight-symbol-prev)
+
 ;; kill that pesky start screen
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
