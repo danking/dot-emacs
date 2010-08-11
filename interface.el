@@ -28,6 +28,8 @@
 (global-set-key [\\r] 'newline-and-indent)
 (global-set-key (kbd "C-c w") 'clipboard-kill-ring-save)
 (global-set-key (kbd "C-c y") 'clipboard-yank)
+(global-set-key (kbd "C-<pause>") 'previous-buffer)
+(global-set-key (kbd "M-<pause>") 'next-buffer)
 
 ;; kill that pesky start screen
 (setq inhibit-splash-screen t)
