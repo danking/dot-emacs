@@ -21,13 +21,14 @@
  '(javascript-indent-level 2)
  '(js2-basic-offset 2)
  '(js2-enter-indents-newline nil)
+ '(magit-revert-item-confirm t)
  '(quack-programs (quote ("b" "bigloo" "csi" "csi -hygienic" "drscheme" "gosh"
                           "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa"
-                          "mit-scheme" "mred" "mred -z" "mzscheme"
-                          "mzscheme" "mzscheme -M errortrace"
-                          "mzscheme -il r6rs" "mzscheme -il typed-scheme"
-                          "mzscheme3m" "mzschemecgc" "rs" "scheme"
-                          "scheme48" "scsh" "sisc" "stklos" "sxi"))))
+                          "mit-scheme" "mred" "mred -z" "mzscheme" "mzscheme"
+                          "mzscheme -M errortrace" "mzscheme -il r6rs"
+                          "mzscheme -il typed-scheme" "mzscheme3m"
+                          "mzschemecgc" "rs" "scheme" "scheme48" "scsh"
+                          "sisc" "stklos" "sxi"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  bertlham                                                                 ;;
