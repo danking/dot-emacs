@@ -42,6 +42,9 @@
  '(quack-pltish-paren-face ((t (:foreground "darkgreen"))))
  '(quack-pltish-selfeval-face ((t (:foreground "lightgreen")))))
 
+(put 'narrow-to-region 'disabled t)
+(put 'narrow-to-page 'disabled nil)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  bertlham                                                                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
