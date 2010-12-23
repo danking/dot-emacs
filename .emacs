@@ -30,6 +30,7 @@
  '(quack-programs '("racket" "scheme48" "scsh" "racket -il typed/racket"))
  '(vc-follow-symlinks t))
 
+;; who sets these shit colors?
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
