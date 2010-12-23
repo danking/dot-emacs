@@ -2,6 +2,18 @@
 ;;; Daniel King
 ;;; Sets up the UI elements the way I've grown acustomed to
 
+;;; ido mode
+;; improvement to M-x
+(global-set-key
+ (kbd "M-x")
+ (lambda ()
+   (interactive)
+   (call-interactively
+    (intern
+     (ido-completing-read
+      "M-x "
+      (all-completions "" obarray 'commandp))))))
+
 ;;; Whitespace Mode
 (setq whitespace-style '(lines empty))
 (setq whitespace-line-column 80)
