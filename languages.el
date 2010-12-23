@@ -25,13 +25,6 @@
                               ; docs or impressing freshmen.
                               ;; (abbrev-mode t)
                               ))
-;; who sets these shit colors?
-(custom-set-faces
- '(quack-pltish-comment-face ((t (:foreground "chocolate1"))))
- '(quack-pltish-selfeval-face ((t (:foreground "lightgreen"))))
- '(quack-pltish-keyword-face ((t (:foreground "maroon"))))
- '(quack-pltish-paren-face ((t (:foreground "darkgreen"))))
- '(quack-pltish-defn-face ((t (:foreground "darkred")))))
 
 ;; ElDoc
 (require 'eldoc)
