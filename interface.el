@@ -29,11 +29,14 @@
 (global-set-key (kbd "C-c w") 'clipboard-kill-ring-save)
 (global-set-key (kbd "C-c y") 'clipboard-yank)
 (global-set-key (kbd "C-<pause>") 'previous-buffer)
+(global-set-key (kbd "C-c b") 'previous-buffer)
 (global-set-key (kbd "M-<pause>") 'next-buffer)
+(global-set-key (kbd "C-c r") 'revert-buffer)
 ;; Only killing the current buffer is useful
 ;; (thanks to bitbucket.org/jordigh who says "thanks to madpickle of #emacs")
 (global-set-key (kbd "C-x k")
                 (lambda () (interactive) (kill-buffer (current-buffer))))
+
 
 ;; Higlight symbol
 (require 'highlight-symbol)
@@ -71,9 +74,6 @@
 ;; anything to the initial frame if it's in your .emacs, since that file is
 ;; read _after_ the initial frame is created.
 (add-hook 'after-make-frame-functions 'toggle-fullscreen)
-
-;; loads find file at point -- No fapping here.
-(ffap-bindings)
 
 ;;; Longlines
 (if (file-exists-p "/home/danking/.emacs.d/longlines.el")
