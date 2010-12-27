@@ -93,4 +93,8 @@
       "longlines.el"
       "Minor mode for automatically wrapping long lines." t))
 
+;; default web browser
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
+
 (provide 'interface)
