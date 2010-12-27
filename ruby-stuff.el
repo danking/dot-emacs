@@ -36,4 +36,3 @@
 (require 'rcov-overlay)
 
 (provide 'ruby-stuff)
-
