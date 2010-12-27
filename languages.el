@@ -35,10 +35,10 @@
 (require 'quack)
 
 
-;; SML
+;;; SML
 (setq-default sml-indent-level 2)
 
-
+;;; Ruby
 (require 'ruby-stuff)
 
 ;;; Java
