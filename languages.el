@@ -78,5 +78,25 @@
   nil ;; extra function hooks
   "Major mode for BNF highlighting.")
 
+;;; Markdown
+(autoload 'markdown-mode "markdown-mode/markdown-mode.el"
+  "markdown mode" t)
+(add-to-list 'auto-mode-alist
+             '("\\.\\(md\\|text\\|markdown\\|mkd\\)$" . markdown-mode))
+
+(defun markdown-pdf ()
+  "Run markdown2pdf on the buffer and place output in ../ with buffer name"
+  (interactive)
+  (string-match "\\(.*/\\)\\([^/]\\)$" buffer-file-name)
+  (let* ((buffer-dir (match-string 1)) ; extract the first group from prev match
+         (output-filename (replace-regexp-in-string "\\.[^.]*$"
+                                                    ".pdf"
+                                                    (buffer-name)))
+         (output-file-path (concat buffer-dir "../" output-filename)))
+    (call-process "markdown2pdf"
+                  buffer-file-name
+                  "*markdown2pdf-output*"
+                  (concat "-o " output-file-path))
+    (call-process "gnome-open" nil nil output-file-path)))
 
 (provide 'languages)
