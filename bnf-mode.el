@@ -1,0 +1,19 @@
+;;; BNFs
+(define-generic-mode 'bnf-mode
+  () ;; comment char: inapplicable because # must be at start of line
+  nil ;; keywords
+  '(
+    ("^#.*"       . 'font-lock-comment-face) ;; comments at start of line
+    ("^<.*?>"     . 'font-lock-function-name-face) ;; LHS nonterminals
+    ("<.*?>"      . 'font-lock-builtin-face) ;; other nonterminals
+    ("::="        . 'font-lock-const-face) ;; "goes-to" symbol
+    ("\|"         . 'font-lock-warning-face) ;; "OR" symbol
+    ("\"[^\"]*\"" . 'font-lock-keyword-face) ;; literals
+    ("\*"         . 'font-lock-warning-face) ;; Kleene star
+    ("\+"         . 'font-lock-warning-face) ;; 1 or more
+   )
+  '("\\.bnf\\'") ;; filename suffixes
+  nil ;; extra function hooks
+  "Major mode for BNF highlighting.")
+
+(provide bnf-mode)
