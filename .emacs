@@ -11,6 +11,7 @@
 (require 'shellfixes)
 (require 'coding-utilities)
 (require 'org-setup)
+(require 'etc)
 (require 'emacs-utilities)
 
 (custom-set-variables
