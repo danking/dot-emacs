@@ -27,9 +27,8 @@
 ;;; Color-Theme
 (add-to-list 'load-path "/home/danking/.emacs.d/color-theme-el/")
 (require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-comidia)))
+(require 'color-theme-tangotango)
+(color-theme-tangotango)
 
 ;; self explanatory
 (setq-default show-trailing-whitespace t)
