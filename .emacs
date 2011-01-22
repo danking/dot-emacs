@@ -11,6 +11,7 @@
 (require 'shellfixes)
 (require 'coding-utilities)
 (require 'org-setup)
+(require 'apps)
 (require 'etc)
 (require 'emacs-utilities)
 
@@ -29,7 +30,9 @@
  '(js2-basic-offset 2)
  '(js2-enter-indents-newline nil)
  '(magit-revert-item-confirm t)
- '(quack-programs '("racket" "scheme48" "scsh" "racket -il typed/racket"))
+ '(mingus-use-ido-mode-p t)
+ '(quack-default-program "racket")
+ '(quack-programs '("racket" "racket -il typed/racket" "scheme48" "scsh"))
  '(vc-follow-symlinks t))
 
 ;; who sets these shit colors?
@@ -45,9 +48,8 @@
  '(quack-pltish-selfeval-face ((t (:foreground "lightgreen")))))
 
 (put 'narrow-to-page 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  bertlham                                                                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(put 'narrow-to-region 'disabled nil)
