@@ -15,4 +15,4 @@
                              (local-set-key (kbd "C-c p")
                                             'latex-pdf-preview)))
 
-(provide latex-pdf-preview)
+(provide 'latex-pdf-preview)

@@ -16,4 +16,4 @@
   nil ;; extra function hooks
   "Major mode for BNF highlighting.")
 
-(provide bnf-mode)
+(provide 'bnf-mode)
