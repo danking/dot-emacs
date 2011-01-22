@@ -1,8 +1,8 @@
 ;;; languages.el
 
-(require bnf-mode.el)
+(require 'bnf-mode)
 
-(require latex-pdf-preview.el)
+(require 'latex-pdf-preview)
 
 ;;; Python
 ;(setq-defualt python-guess-indent nil)
