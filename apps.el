@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/emacs.d/mingus/")
+(add-to-list 'load-path "/home/danking/emacs.d/mingus")
 (autoload 'mingus "mingus-stays-home")
 
 ;; fucking 3pic switcheroo
