@@ -39,6 +39,7 @@
 (global-set-key [\\r] 'newline-and-indent)
 (global-set-key (kbd "C-c w") 'clipboard-kill-ring-save)
 (global-set-key (kbd "C-c y") 'clipboard-yank)
+(setq x-select-enable-clipboard t)
 (global-set-key (kbd "C-<pause>") 'previous-buffer)
 (global-set-key (kbd "C-c b") 'previous-buffer)
 (global-set-key (kbd "M-<pause>") 'next-buffer)
