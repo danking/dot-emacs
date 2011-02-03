@@ -11,7 +11,7 @@
 
 ;;; Scheme
 ;; Racket
-(add-to-list 'auto-mode-alist '("\\.rkt$" . scheme-mode))
+(add-to-list 'auto-mode-alist '("\\.rkt?$" . scheme-mode))
 ;; REPL binary
 (set-variable 'scheme-program-name "mzscheme")
 ;; Paredit
