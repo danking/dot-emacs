@@ -25,7 +25,6 @@
 (setq-default indent-tabs-mode nil)
 
 ;;; Color-Theme
-(add-to-list 'load-path "/home/danking/.emacs.d/color-theme-el/")
 (require 'color-theme)
 (require 'color-theme-tangotango)
 (color-theme-tangotango)
