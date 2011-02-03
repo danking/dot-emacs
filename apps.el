@@ -1,6 +1,7 @@
-(add-to-list 'load-path "/home/danking/emacs.d/mingus")
+(add-to-list 'load-path "~/.emacs.d/mingus/")
 (autoload 'mingus "mingus-stays-home")
 
+(require 'cl) ;; for lexical-let
 ;; fucking 3pic switcheroo
 (global-set-key (kbd "C-c m")
                 (lexical-let ((previous-buffer (current-buffer)))
