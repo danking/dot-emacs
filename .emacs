@@ -32,6 +32,7 @@
  '(magit-revert-item-confirm t)
  '(mingus-use-ido-mode-p t)
  '(quack-default-program "racket")
+ '(quack-fontify-threesemi-p nil)
  '(quack-programs '("racket" "racket -il typed/racket" "scheme48" "scsh"))
  '(smerge-command-prefix "C-c C-s")
  '(vc-follow-symlinks t))
