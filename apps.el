@@ -9,6 +9,8 @@
                     (interactive)
                     (if (string-match "\*Mingus.*" (buffer-name))
                         (switch-to-buffer previous-buffer)
-                        (mingus)))))
+                        (progn
+                          (setq previous-buffer (current-buffer))
+                          (mingus))))))
 
 (provide 'apps)
