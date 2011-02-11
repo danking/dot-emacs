@@ -42,11 +42,11 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(quack-pltish-comment-face ((t (:foreground "chocolate1"))))
- '(quack-pltish-defn-face ((t (:foreground "darkred"))))
- '(quack-pltish-keyword-face ((t (:foreground "maroon"))))
- '(quack-pltish-paren-face ((t (:foreground "darkgreen"))))
- '(quack-pltish-selfeval-face ((t (:foreground "lightgreen")))))
+ '(quack-pltish-comment-face ((t (:foreground "#a60"))))
+ '(quack-pltish-defn-face ((t (:foreground "#b66"))))
+ '(quack-pltish-keyword-face ((t (:foreground "#744"))))
+ '(quack-pltish-paren-face ((t (:foreground "#696"))))
+ '(quack-pltish-selfeval-face ((t (:foreground "#ada")))))
 
 (put 'narrow-to-page 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
