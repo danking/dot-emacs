@@ -10,6 +10,7 @@
 (require 'languages)
 (require 'shellfixes)
 (require 'coding-utilities)
+(require 'general-utilities)
 (require 'org-setup)
 (require 'apps)
 (require 'etc)

@@ -71,4 +71,8 @@
 (add-to-list 'auto-mode-alist
              '("\\.\\(md\\|text\\|markdown\\|mkd\\)$" . markdown-mode))
 
+;;; English
+(dolist (hooked-mode '(longlines-mode flyspell-mode))
+ (add-hook 'text-mode-hook hooked-mode))
+
 (provide 'languages)
