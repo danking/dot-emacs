@@ -14,6 +14,10 @@
       "M-x "
       (all-completions "" obarray 'commandp))))))
 
+;; show the time in status bar
+(setq display-time-24hr-format t)
+(display-time)
+
 ;;; Whitespace Mode
 (setq whitespace-style '(lines empty))
 (setq whitespace-line-column 80)
