@@ -2,7 +2,7 @@
 (message "starting Emacs server for emacsclient")
 (server-start)
 
-(defun recompile-emacs-lisp-files-in-emacs.d
+(defun recompile-emacs-lisp-files-in-emacs.d ()
   "recompiles all the emacs lisp files in emacs.d"
   (interactive)
   (mapcar (lambda (dir)
