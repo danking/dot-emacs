@@ -45,10 +45,10 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(quack-pltish-comment-face ((t (:foreground "#a60"))))
- '(quack-pltish-defn-face ((t (:foreground "#b66"))))
- '(quack-pltish-keyword-face ((t (:foreground "#744"))))
+ '(quack-pltish-defn-face ((t (:foreground "#bf0" :weight bold))))
+ '(quack-pltish-keyword-face ((t (:foreground "#f00" :weight bold))))
  '(quack-pltish-paren-face ((t (:foreground "#696"))))
- '(quack-pltish-selfeval-face ((t (:foreground "#ada")))))
+ '(quack-pltish-selfeval-face ((t (:foreground "#0a8" :weight normal)))))
 
 (put 'narrow-to-page 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
