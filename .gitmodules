@@ -19,3 +19,6 @@
 [submodule "mingus"]
 	path = mingus
 	url = git://github.com/pft/mingus.git
+[submodule "geiser"]
+	path = geiser
+	url = git://github.com/jaor/geiser.git
