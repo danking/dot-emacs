@@ -20,6 +20,9 @@
 (add-sexp-languages-hook (lambda ()
                            (paredit-mode +1)
                            (show-paren-mode t)))
+;; Geiser
+(load-file "~/.emacs.d/geiser/elisp/geiser.el")
+;; abbreviations
 (add-hook 'scheme-mode-hook (lambda ()
                               ; convert lambdas and arrows to Unicode
                               (define-abbrev-table 'global-abbrev-table
