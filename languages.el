@@ -68,6 +68,10 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (setq js2-auto-indent-flag nil)
 
+;;; CoffeeScript
+(add-to-list 'load-path "~/.emacs.d/coffee-mode")
+(require 'coffee-mode)
+
 ;;; Markdown
 (autoload 'markdown-mode "markdown-mode/markdown-mode.el"
   "markdown mode" t)
