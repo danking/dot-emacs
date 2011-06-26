@@ -22,3 +22,6 @@
 [submodule "geiser"]
 	path = geiser
 	url = git://github.com/jaor/geiser.git
+[submodule "coffee-mode"]
+	path = coffee-mode
+	url = git://github.com/defunkt/coffee-mode.git
