@@ -19,7 +19,7 @@
 (display-time)
 
 ;;; Whitespace Mode
-(setq whitespace-style '(lines empty))
+(setq whitespace-style '(lines))
 (setq whitespace-line-column 80)
 (global-whitespace-mode 1)
 
