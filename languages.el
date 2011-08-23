@@ -22,8 +22,16 @@
                            (show-paren-mode t)))
 ;; Geiser
 (load-file "~/.emacs.d/geiser/elisp/geiser.el")
+
+;; Indentation Rules
+(defun (setup-indentation-rules)
+  (put 'syntax-parse 'scheme-indent-function 1)
+  (put 'for/hasheq 'scheme-indent-function 1)
+  (put 'for/list 'scheme-indent-function 1))
+
 ;; abbreviations
 (add-hook 'scheme-mode-hook (lambda ()
+                              (setup-indentation-rules)
                               ; convert lambdas and arrows to Unicode
                               (define-abbrev-table 'global-abbrev-table
                                 '(("lambda" "λ" nil 0)
