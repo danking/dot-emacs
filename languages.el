@@ -66,6 +66,16 @@
 
 ;(require 'cedet)
 
+;;; HTML
+(defun html-preview ()
+  (interactive)
+  (start-process "open html file"
+                 "*gnome-open-output*"
+                 "google-chrome"
+                 (buffer-file-name (current-buffer))))
+(add-hook 'html-mode-hook (lambda () (local-set-key (kbd "C-c C-p")
+                                                    'html-preview)))
+
 ;;; CSS
 (setq css-indent-offset 2)
 (setq css-indent-level 2)
