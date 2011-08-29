@@ -29,7 +29,7 @@
         ("m" "Music" entry (file+headline "~/org/tobuy.org" "Music")
          "* %^{Album} by %^{Artist}")
         ("u" "Unix Tutorial Idea" entry
-         (file+headline "~/Documents/projects/ideas/talk-on-nix.org"
+         (file+headline "~/org/talk-on-nix.org"
                         "Idea")
          "* %?")
         ("b" "Books/Reading Material" entry (file+headline "~/org/tobuy.org"
