@@ -50,6 +50,10 @@
 ;; Quack
 (require 'quack)
 
+;;; Haskell
+(load "~/.emacs.d/haskell-mode/haskell-site-file.el")
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 ;;; SML
 (setq-default sml-indent-level 2)
