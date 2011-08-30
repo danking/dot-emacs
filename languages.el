@@ -24,8 +24,8 @@
 (load-file "~/.emacs.d/geiser/elisp/geiser.el")
 
 ;; Indentation Rules
-(defun (setup-indentation-rules)
-  (put 'syntax-parse 'scheme-indent-function 1)
+(defun setup-indentation-rules ()
+  (put 'syntax-parse 'scheme-indent-function 0)
   (put 'for/hasheq 'scheme-indent-function 1)
   (put 'for/list 'scheme-indent-function 1))
 
