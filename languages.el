@@ -52,6 +52,8 @@
 
 ;;; Haskell
 (load "~/.emacs.d/haskell-mode/haskell-site-file.el")
+;; I need to investigate what is wrong with the haskell mode auto-mode entry
+(add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
