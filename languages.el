@@ -93,17 +93,21 @@
 (setq js2-auto-indent-flag nil)
 
 ;;; CoffeeScript
-(add-to-list 'load-path "~/.emacs.d/coffee-mode")
-(require 'coffee-mode)
+(require 'coffee-mode "~/.emacs.d/coffee-mode/coffee-mode.el")
 
 ;;; Markdown
 (autoload 'markdown-mode "markdown-mode/markdown-mode.el"
   "markdown mode" t)
 (add-to-list 'auto-mode-alist
              '("\\.\\(md\\|text\\|markdown\\|mkd\\)$" . markdown-mode))
+(add-hook 'markdown-mode-hook (lambda ()
+                                ; I think markdown-mode inherits text-mode
+                                (refill-mode -1)
+                                (auto-fill-mode 1)))
 
 ;;; English
-(dolist (hooked-mode '(longlines-mode flyspell-mode))
-  (add-hook 'text-mode-hook hooked-mode))
+(add-hook 'text-mode-hook (lambda ()
+                            (refill-mode 1)
+                            (flyspell-mode 1)))
 
 (provide 'languages)
