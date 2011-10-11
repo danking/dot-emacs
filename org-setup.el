@@ -12,6 +12,8 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (add-hook 'org-mode-hook
           (lambda ()
+            (refill-mode -1) ; I think this is inherited from text-mode
+            (auto-fill-mode 1)
             ;; change outline item depth
             (local-set-key (kbd "M-n") 'org-metaright)
             (local-set-key (kbd "M-p") 'org-metaleft)))
@@ -30,6 +32,10 @@
          "* %^{Album} by %^{Artist}")
         ("u" "Unix Tutorial Idea" entry
          (file+headline "~/org/talk-on-nix.org"
+                        "Idea")
+         "* %?")
+        ("g" "Git Tutorial Idea" entry
+         (file+headline "~/org/talk-on-git.org"
                         "Idea")
          "* %?")
         ("b" "Books/Reading Material" entry (file+headline "~/org/tobuy.org"
