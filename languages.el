@@ -21,7 +21,7 @@
                            (paredit-mode +1)
                            (show-paren-mode t)))
 ;; Geiser
-(load-file "~/.emacs.d/geiser/elisp/geiser.el")
+(load-file "~/.emacs.d/geiser/build/elisp/geiser-load.el")
 
 ;; Indentation Rules
 (defun setup-indentation-rules ()
