@@ -98,10 +98,10 @@
 (add-hook 'after-make-frame-functions 'toggle-fullscreen)
 
 ;;; Longlines
-(if (file-exists-p "/home/danking/.emacs.d/longlines.el")
-    (autoload 'longlines-mode
-      "longlines.el"
-      "Minor mode for automatically wrapping long lines." t))
+;; (if (file-exists-p "/home/danking/.emacs.d/longlines.el")
+;;     (autoload 'longlines-mode
+;;       "longlines.el"
+;;       "Minor mode for automatically wrapping long lines." t))
 
 ;; default web browser
 (setq browse-url-browser-function 'browse-url-generic
