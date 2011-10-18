@@ -25,7 +25,7 @@
 
 ;; Indentation Rules
 (defun setup-indentation-rules ()
-  (put 'syntax-parse 'scheme-indent-function 0)
+  (put 'syntax-parse 'scheme-indent-function 1)
   (put 'for/hasheq 'scheme-indent-function 1)
   (put 'for/list 'scheme-indent-function 1))
 
