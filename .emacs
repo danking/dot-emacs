@@ -23,6 +23,7 @@
   ;; If there is more than one, they won't work right.
  '(erc-hide-list (quote ("JOIN" "NICK" "PART" "QUIT")))
  '(geiser-default-implementation (quote racket))
+ '(geiser-racket-init-file "~/.racketrc!not")
  '(ido-create-new-buffer (quote never))
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
