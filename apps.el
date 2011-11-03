@@ -13,4 +13,7 @@
                           (setq previous-buffer (current-buffer))
                           (mingus))))))
 
+(add-to-list 'load-path "~/.emacs.d/gist.el")
+(require 'gist)
+
 (provide 'apps)

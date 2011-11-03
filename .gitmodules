@@ -31,3 +31,6 @@
 [submodule "color-theme-zenburn"]
 	path = color-theme-zenburn
 	url = git://github.com/bbatsov/zenburn-emacs.git
+[submodule "gist.el"]
+	path = gist.el
+	url = git://github.com/defunkt/gist.el.git
