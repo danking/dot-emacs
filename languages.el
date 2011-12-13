@@ -27,7 +27,11 @@
 (defun setup-indentation-rules ()
   (put 'syntax-parse 'scheme-indent-function 1)
   (put 'for/hasheq 'scheme-indent-function 1)
-  (put 'for/list 'scheme-indent-function 1))
+  (put 'for/list 'scheme-indent-function 1)
+  (put 'for/fold 'scheme-indent-function 2)
+  (put 'for/set 'scheme-indent-function 1)
+  (put 'match-let 'scheme-indent-function 1)
+  (put 'define-match 'scheme-indent-function 0))
 
 ;; abbreviations
 (add-hook 'scheme-mode-hook (lambda ()
