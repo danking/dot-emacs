@@ -20,6 +20,19 @@
 (add-sexp-languages-hook (lambda ()
                            (paredit-mode +1)
                            (show-paren-mode t)))
+
+(defun kill-whitespace ()
+ "Kill the whitespace between two non-whitespace characters"
+ (interactive "*")
+ (save-excursion
+   (save-restriction
+     (save-match-data
+       (progn
+         (re-search-backward "[^ \t\r\n]" nil t)
+         (re-search-forward "[ \t\r\n]+" nil t)
+         (replace-match "" nil nil))))))
+(global-set-key (kbd "M-\\") 'kill-whitespace)
+
 ;; Geiser
 (load-file "~/.emacs.d/geiser/build/elisp/geiser-load.el")
 
