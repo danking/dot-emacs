@@ -10,4 +10,9 @@
               (byte-compile-file dir)))
           (directory-files "~/.emacs.d/")))
 
+(defun reload-emacs ()
+  (interactive)
+  (setq features '())
+  (load-file "~/.emacs"))
+
 (provide 'emacs-utilities)
