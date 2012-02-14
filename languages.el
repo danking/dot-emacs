@@ -32,6 +32,7 @@
   (put 'for/set 'scheme-indent-function 1)
   (put 'for/or 'scheme-indent-function 1)
   (put 'match-let 'scheme-indent-function 1)
+  (put 'match-lambda 'scheme-indent-function 1)
   (put 'define-match 'scheme-indent-function 0))
 
 ;; abbreviations
