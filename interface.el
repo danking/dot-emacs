@@ -74,9 +74,9 @@
 (setq inhibit-startup-echo-area-message t)
 
 (message "Slimming down the interface...")
-(menu-bar-mode nil)
-(toggle-scroll-bar nil)
-(tool-bar-mode nil)
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
 ;; fill-column
 (setq-default fill-column 80)
 (setq-default scroll-step 1)
