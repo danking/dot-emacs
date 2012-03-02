@@ -47,6 +47,7 @@
   (put 'for/fold 'scheme-indent-function 2)
   (put 'for/set 'scheme-indent-function 1)
   (put 'for/or 'scheme-indent-function 1)
+  (put 'for 'scheme-indent-function 1)
   (put 'match-let 'scheme-indent-function 1)
   (put 'match-lambda 'scheme-indent-function 0)
   (put 'match-lambda* 'scheme-indent-function 0)
