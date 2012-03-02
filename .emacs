@@ -35,6 +35,7 @@
  '(js2-basic-offset 2)
  '(js2-enter-indents-newline nil)
  '(magit-revert-item-confirm t)
+ '(mingus-mpd-host "192.168.1.2")
  '(mingus-use-ido-mode-p t)
  '(quack-default-program "racket")
  '(quack-fontify-threesemi-p nil)
