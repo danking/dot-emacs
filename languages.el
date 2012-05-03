@@ -131,7 +131,8 @@
 
 ;;; English
 (add-hook 'text-mode-hook (lambda ()
-                            (refill-mode 1)
+                            (auto-fill-mode 1)
+                            (refill-mode -1)
                             (flyspell-mode 1)))
 
 (provide 'languages)
