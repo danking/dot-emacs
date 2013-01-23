@@ -3,6 +3,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "/home/danking/.emacs.d")
 
+;; package manager
+(require 'package)
+;; the marmalade repo
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 (require 'dot-emacs-utils)
 
 (require 'macros)

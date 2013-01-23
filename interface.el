@@ -29,16 +29,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;;; Color-Theme
-(require 'color-theme)
-;; (require 'color-theme-tangotango)
-;; (color-theme-tangotango)
-(autoload 'color-theme-zenburn
-  "~/.emacs.d/color-theme-zenburn/color-theme-zenburn.el"
-  "a low-contrast color theme for emacs"
-  t
-  nil)
-(color-theme-zenburn)
-
+(load-theme 'zenburn t)
 
 ;; self explanatory
 (setq-default show-trailing-whitespace t)
