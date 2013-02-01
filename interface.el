@@ -38,9 +38,10 @@
 
 ;; useful key bindings
 (global-set-key [\\r] 'newline-and-indent)
-(global-set-key (kbd "C-c w") 'clipboard-kill-ring-save)
-(global-set-key (kbd "C-c y") 'clipboard-yank)
+;; (global-set-key (kbd "C-c w") 'clipboard-kill-ring-save)
+;; (global-set-key (kbd "C-c y") 'clipboard-yank)
 (setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 (global-set-key (kbd "C-<pause>") 'previous-buffer)
 (global-set-key (kbd "C-c b") 'previous-buffer)
 (global-set-key (kbd "M-<pause>") 'next-buffer)
