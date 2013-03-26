@@ -40,6 +40,8 @@
  '(ido-mode (quote both) nil (ido))
  '(ido-use-filename-at-point (quote guess))
  '(ido-use-url-at-point t)
+ '(ispell-highlight-face (quote flyspell-incorrect))
+ '(ispell-program-name "aspell")
  '(javascript-indent-level 2)
  '(js2-basic-offset 2)
  '(js2-enter-indents-newline nil)
@@ -60,10 +62,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(quack-pltish-comment-face ((t (:foreground "#a60"))))
+ '(eim-string-face ((t (:underline t :height 1.0))))
+ '(eim-tooltip-face ((t (:inherit tooltip :height 2.0))))
+ '(quack-pltish-comment-face ((t (:foreground "sandy brown"))))
  '(quack-pltish-defn-face ((t (:foreground "#bf0" :weight bold))))
  '(quack-pltish-keyword-face ((t (:foreground "#f00" :weight bold))))
- '(quack-pltish-paren-face ((t (:foreground "#696"))))
+ '(quack-pltish-paren-face ((t (:foreground "gray"))))
  '(quack-pltish-selfeval-face ((t (:foreground "#0a8" :weight normal)))))
 
 (put 'narrow-to-page 'disabled nil)
