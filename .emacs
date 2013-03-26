@@ -21,6 +21,9 @@
 (require 'apps)
 (require 'etc)
 (require 'emacs-utilities)
+;; if we don't have a system specific file, don't show an error, but if such a
+;; file exists, load it.
+(require 'system-specific nil 'noerror)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
