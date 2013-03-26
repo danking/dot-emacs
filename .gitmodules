@@ -34,3 +34,6 @@
 [submodule "gist.el"]
 	path = gist.el
 	url = git://github.com/defunkt/gist.el.git
+[submodule "site-lisp/eim"]
+	path = site-lisp/eim
+	url = git@github.com:danking/eim-py.git
