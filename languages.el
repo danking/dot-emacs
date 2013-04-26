@@ -19,7 +19,8 @@
   "Minor mode for pseudo-structurally editing Lisp code." t)
 (add-sexp-languages-hook (lambda ()
                            (paredit-mode +1)
-                           (show-paren-mode t)))
+                           (show-paren-mode t)
+                           (auto-fill-mode t)))
 
 (defun kill-whitespace ()
  "Kill the whitespace between two non-whitespace characters"
