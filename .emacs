@@ -35,7 +35,7 @@
  '(erc-hide-list (quote ("JOIN" "NICK" "PART" "QUIT")))
  '(fci-rule-color "#383838")
  '(geiser-default-implementation (quote racket))
- '(geiser-racket-extra-keywords (quote ("define-syntax-rule" "provide" "require" "unless" "when" "with-handlers" "define-syntax-class" "module" "module*" "module+" "for" "for*" "for/fold" "for*/fold" "for/first" "for/last" "for*/first" "for*/last" "define-values" "match-define" "define/match" "match-lambda" "match-lambda*" "match-lambda**")))
+ '(geiser-racket-extra-keywords (quote ("define-syntax-rule" "provide" "require" "unless" "when" "with-handlers" "define-syntax-class" "module" "module*" "module+" "for" "for*" "for/fold" "for*/fold" "for/first" "for/last" "for*/first" "for*/last" "define-values" "match-define" "match-lambda" "match-lambda*" "match-lambda**")))
  '(geiser-racket-init-file "~/.racketrc")
  '(ido-create-new-buffer (quote never))
  '(ido-enable-flex-matching t)
