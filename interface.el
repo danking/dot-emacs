@@ -97,7 +97,7 @@
 
 ;; default web browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "google-chrome")
+      browse-url-generic-program "chromium")
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/eim")
 (autoload 'eim-use-package "eim" "Another emacs input method")

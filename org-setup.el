@@ -19,6 +19,8 @@
             (local-set-key (kbd "M-p") 'org-metaleft)))
 
 (setq org-default-notes-file (concat org-directory "/notes.org"))
+;; records completion time for TODO itmes
+(setq org-log-done t)
 
 ;; capture templates
 (setq org-capture-templates

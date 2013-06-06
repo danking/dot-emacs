@@ -12,6 +12,12 @@
 ;;; Scheme
 ;; Racket
 (add-to-list 'auto-mode-alist '("\\.rkt?$" . scheme-mode))
+(add-hook 'scheme-mode-hook
+          (lambda ()
+            (unless (or (file-exists-p "makefile")
+                        (file-exists-p "Makefile"))
+              (set (make-local-variable 'compile-command)
+                   (concat "racket " buffer-file-name)))))
 ;; REPL binary
 (set-variable 'scheme-program-name "mzscheme")
 ;; Paredit
@@ -100,7 +106,8 @@
   (put 'match-let 'scheme-indent-function 1)
   (put 'match-lambda 'scheme-indent-function 0)
   (put 'match-lambda* 'scheme-indent-function 0)
-  (put 'define-match 'scheme-indent-function 0))
+  (put 'module+ 'scheme-indent-function 1)
+  (put 'module* 'scheme-indent-function 1))
 
 ;; abbreviations
 (add-hook 'scheme-mode-hook (lambda ()
