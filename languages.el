@@ -6,7 +6,6 @@
 
 ;;; Python
 ;(setq-defualt python-guess-indent nil)
-(add-hook 'python-mode-hook 'longlines-mode)
 (setq-default python-indent 2)
 
 ;;; Scheme
