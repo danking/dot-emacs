@@ -40,7 +40,8 @@
 (global-set-key (kbd "M-\\") 'kill-whitespace)
 
 ;; Geiser
-(load-file "~/.emacs.d/geiser/build/elisp/geiser-load.el")
+;; now from package.el
+;; (load-file "~/.emacs.d/geiser/build/elisp/geiser-load.el")
 
 ;; Indentation Rules
 (defun setup-indentation-rules ()
