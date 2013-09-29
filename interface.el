@@ -41,7 +41,11 @@
 ;; (global-set-key (kbd "C-c w") 'clipboard-kill-ring-save)
 ;; (global-set-key (kbd "C-c y") 'clipboard-yank)
 (setq x-select-enable-clipboard t)
-(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+(setq interprogram-paste-function
+      (if (eq system-type 'gnu-linux)
+          'x-cut-buffer-or-selection-value
+          'x-selection-value))
+
 (global-set-key (kbd "C-<pause>") 'previous-buffer)
 (global-set-key (kbd "C-c b") 'previous-buffer)
 (global-set-key (kbd "M-<pause>") 'next-buffer)

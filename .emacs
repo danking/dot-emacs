@@ -1,7 +1,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Dan King's .emacs                                                        ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "/home/danking/.emacs.d")
+(add-to-list 'load-path
+             (if (eq system-type 'gnu-linux)
+                 "/home/danking/.emacs.d"
+                 "/Users/danking/.emacs.d"))
 
 ;; package manager
 (require 'package)
