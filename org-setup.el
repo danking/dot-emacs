@@ -1,5 +1,3 @@
-(add-to-list 'load-path "~/.emacs.d/org-mode/lisp/")
-
 (require 'org-install)
 (require 'org)
 
