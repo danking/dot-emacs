@@ -1,3 +1,12 @@
+(defun latex-pdf-compile ()
+  (interactive)
+  (message "producing a new pdf")
+  (call-process "pdflatex"
+                nil
+                "*pdflatex-output*"
+                nil
+                buffer-file-name))
+
 (defun latex-pdf-preview ()
   (interactive)
   (message "producing a new pdf")
@@ -25,7 +34,7 @@
 
 (add-hook 'latex-mode-hook (lambda ()
                              (local-set-key (kbd "C-c p")
-                                            'latex-pdf-preview)))
+                                            'latex-pdf-compile)))
 (add-hook 'latex-mode-hook (lambda ()
                              (local-set-key (kbd "C-c b")
                                             'latex-recompile-references)))
