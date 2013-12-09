@@ -1,5 +1,8 @@
-(require 'org-install)
-(require 'org)
+;; (require 'org-install)
+;; (require 'org)
+(add-to-list 'load-path "~/.emacs.d/org-reveal/")
+(require 'ox-reveal)
+(setq org-reveal-root "file:///Users/danking/borg/reveal.js-master/")
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
