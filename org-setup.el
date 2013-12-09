@@ -23,6 +23,14 @@
 ;; records completion time for TODO itmes
 (setq org-log-done t)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)
+   (scheme . t)
+   (C . t)
+   (emacs-lisp . nil)
+   ))
+
 ;; capture templates
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/notes.org" "Tasks")
