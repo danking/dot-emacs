@@ -37,3 +37,6 @@
 [submodule "site-lisp/eim"]
 	path = site-lisp/eim
 	url = git@github.com:danking/eim-py.git
+[submodule "org-reveal"]
+	path = org-reveal
+	url = https://github.com/yjwen/org-reveal.git
