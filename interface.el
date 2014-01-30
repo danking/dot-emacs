@@ -112,4 +112,13 @@
  "eim-py" "euc-cn" 'eim-use-package
  "拼音" "汉字拼音输入法" "~/.emacs.d/site-lisp/eim/py.txt")
 
+;; window margins toggling
+(defun toggle-wide-margins ()
+  (interactive)
+  (let ((margins (window-margins)))
+    (if (and (car margins) (= (car margins) 50))
+        (set-window-margins nil 0 0)
+        (set-window-margins nil 50 50))))
+(global-set-key (kbd "C-c n") 'toggle-wide-margins)
+
 (provide 'interface)
