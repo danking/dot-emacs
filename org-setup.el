@@ -31,6 +31,8 @@
    (emacs-lisp . nil)
    ))
 
+(setq org-src-fontify-natively t)
+
 ;; capture templates
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/notes.org" "Tasks")

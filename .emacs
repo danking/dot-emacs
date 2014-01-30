@@ -36,6 +36,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf" "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"])
+ '(c-offsets-alist nil)
  '(custom-safe-themes (quote ("e6fc3dce56058259b0f17ad11a9f38a516aa5215792b5e625296049a9c955f9d" "bb3efc4940d4a22799e00e66ae3b530f5db5bd2930d330eab13de8da182f47b8" "5e2711f52396e5b919b1d800791749136362a418886a71927de1606d375302ff" "36c39ff561a91f1b2f03fe90228073bfac0a5664580ee649e249caa3c8361b3f" "8b7c845da6ef5e6a832b41e41d2a2cdd0bb1533de63cc45cb9db650e85471ac1" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
  '(erc-hide-list (quote ("JOIN" "NICK" "PART" "QUIT")))
  '(fci-rule-color "#383838")
@@ -51,6 +52,7 @@
  '(ispell-highlight-face (quote flyspell-incorrect))
  '(ispell-program-name "aspell")
  '(javascript-indent-level 2)
+ '(js-indent-level 2)
  '(js2-basic-offset 2)
  '(js2-enter-indents-newline nil)
  '(magit-revert-item-confirm t)
