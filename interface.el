@@ -121,4 +121,18 @@
         (set-window-margins nil 50 50))))
 (global-set-key (kbd "C-c n") 'toggle-wide-margins)
 
+;; TRANSPERNCY OOOH!
+(eval-when-compile (require 'cl))
+(set-frame-parameter nil 'alpha '(100 100))
+(defun toggle-transparency ()
+  (interactive)
+  (if (/= (cadr (frame-parameter nil 'alpha)) 100)
+      (set-frame-parameter nil 'alpha '(100 100))
+      (set-frame-parameter nil 'alpha '(85 50))))
+(global-set-key (kbd "C-c t") 'toggle-transparency)
+
+;; Better Unicode Fonts
+(require 'unicode-fonts)
+(unicode-fonts-setup)
+
 (provide 'interface)

@@ -4,6 +4,8 @@
 
 (require 'latex-pdf-preview)
 
+(require 'shill-mode)
+
 ;;; Python
 ;(setq-defualt python-guess-indent nil)
 (setq-default python-indent 2)
@@ -47,6 +49,8 @@
 (defun setup-indentation-rules ()
   (put 'define/match 'scheme-indent-function 'defun)
   (put 'syntax-parse 'scheme-indent-function 1)
+  (put '~> 'scheme-indent-function 1)
+  (put '~>~ 'scheme-indent-function 1)
   (put 'for/sum 'scheme-indent-function 1)
   (put 'for/vector 'scheme-indent-function 1)
   (put 'for/hasheq 'scheme-indent-function 1)
@@ -61,6 +65,8 @@
   (put 'for/or 'scheme-indent-function 1)
   (put 'for/and 'scheme-indent-function 1)
   (put 'for 'scheme-indent-function 1)
+  (put 'for/list~>~ 'scheme-indent-function 1)
+  (put 'for/set~>~ 'scheme-indent-function 1)
   (put 'for*/sum 'scheme-indent-function 1)
   (put 'for*/vector 'scheme-indent-function 1)
   (put 'for*/hasheq 'scheme-indent-function 1)
@@ -112,7 +118,8 @@
   (put 'match-lambda 'scheme-indent-function 0)
   (put 'match-lambda* 'scheme-indent-function 0)
   (put 'module+ 'scheme-indent-function 1)
-  (put 'module* 'scheme-indent-function 1))
+  (put 'module* 'scheme-indent-function 1)
+  (put 'test-case 'scheme-indent-fucntion 1))
 
 ;; abbreviations
 (add-hook 'scheme-mode-hook (lambda ()
@@ -141,6 +148,9 @@
 (add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook
+          (lambda () (local-set-key (kbd "C-c C-n") 'flyspell-goto-next-error)))
+(require 'flycheck-hdevtools)
 
 ;;; SML
 (setq-default sml-indent-level 2)
@@ -192,11 +202,23 @@
 
 ;;; English
 (add-hook 'text-mode-hook (lambda ()
+                            (wc-mode 1)
                             (auto-fill-mode 1)
                             (refill-mode -1)
                             (flyspell-mode 1)))
+(require 'wc-mode)
 
 ;;; R
 (require 'ess)
+
+;;; Erlang
+(add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
+
+;;; C
+(add-hook 'c-mode-hook (lambda ()
+                         (show-paren-mode t)))
+
+;;; Proof General
+(load-file "~/.emacs.d/ProofGeneral-4.2/generic/proof-site.el")
 
 (provide 'languages)
