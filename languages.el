@@ -205,7 +205,9 @@
                             (wc-mode 1)
                             (auto-fill-mode 1)
                             (refill-mode -1)
-                            (flyspell-mode 1)))
+                            (flyspell-mode 1)
+                            (typopunct-mode 1)))
+(require 'typopunct)
 (require 'wc-mode)
 
 ;;; R
