@@ -221,4 +221,9 @@
 ;;; Proof General
 (load-file "~/.emacs.d/ProofGeneral-4.2/generic/proof-site.el")
 
+;;; Agda
+(add-to-list 'load-path
+             "~/.emacs.d/agda-mode")
+(require 'agda2)
+
 (provide 'languages)
