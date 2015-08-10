@@ -1,39 +1,12 @@
-[submodule "nxhtml"]
-	path = nxhtml
-	url = git://github.com/emacsmirror/nxhtml.git
-[submodule "magit"]
-	path = magit
-	url = http://github.com/philjackson/magit.git
-[submodule "cedet"]
-	path = cedet
-	url = http://github.com/emacs-pkg-mirrors/cedet.git
-[submodule "malabar-mode"]
-	path = malabar-mode
-	url = git://github.com/espenhw/malabar-mode.git
 [submodule "org-mode"]
 	path = org-mode
 	url = git://repo.or.cz/org-mode.git
 [submodule "markdown-mode"]
 	path = markdown-mode
 	url = http://jblevins.org/git/markdown-mode.git/
-[submodule "mingus"]
-	path = mingus
-	url = git://github.com/pft/mingus.git
-[submodule "geiser"]
-	path = geiser
-	url = git://github.com/jaor/geiser.git
-[submodule "coffee-mode"]
-	path = coffee-mode
-	url = git://github.com/defunkt/coffee-mode.git
-[submodule "haskell-mode"]
-	path = haskell-mode
-	url = git://github.com/emacsmirror/haskell-mode.git
 [submodule "color-theme-zenburn"]
 	path = color-theme-zenburn
 	url = git://github.com/bbatsov/zenburn-emacs.git
-[submodule "gist.el"]
-	path = gist.el
-	url = git://github.com/defunkt/gist.el.git
 [submodule "site-lisp/eim"]
 	path = site-lisp/eim
 	url = git@github.com:danking/eim-py.git
