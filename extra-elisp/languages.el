@@ -4,10 +4,7 @@
 
 (require 'latex-pdf-preview)
 
-(require 'shill-mode)
-
 ;;; Python
-;(setq-defualt python-guess-indent nil)
 (setq-default python-indent 2)
 
 ;;; Scheme
@@ -19,8 +16,7 @@
                         (file-exists-p "Makefile"))
               (set (make-local-variable 'compile-command)
                    (concat "racket " buffer-file-name)))))
-;; REPL binary
-(set-variable 'scheme-program-name "mzscheme")
+
 ;; Paredit
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
@@ -139,18 +135,16 @@
 (eldoc-add-command
  'paredit-backward-delete
  'paredit-close-round)
+
 ;; Quack
 (require 'quack)
 
-;;; Haskell
-(load "~/.emacs.d/haskell-mode/haskell-site-file.el")
 ;; I need to investigate what is wrong with the haskell mode auto-mode entry
 (add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook
           (lambda () (local-set-key (kbd "C-c C-n") 'flyspell-goto-next-error)))
-(require 'flycheck-hdevtools)
 
 ;;; SML
 (setq-default sml-indent-level 2)
@@ -165,30 +159,13 @@
 (add-hook 'java-mode-hook (lambda () (local-set-key (kbd "C-<tab>")
                                                     'java-complete)))
 
-;(require 'cedet)
-
-;;; HTML
-(defun html-preview ()
-  (interactive)
-  (start-process "open html file"
-                 "*gnome-open-output*"
-                 "google-chrome"
-                 (buffer-file-name (current-buffer))))
-(add-hook 'html-mode-hook (lambda () (local-set-key (kbd "C-c C-p")
-                                                    'html-preview)))
-
 ;;; CSS
 (setq css-indent-offset 2)
 (setq css-indent-level 2)
 
 ;;; Javascript
 (autoload 'javascript-mode "javascript" nil t)
-(autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
-(setq js2-auto-indent-flag nil)
-
-;;; CoffeeScript
-(require 'coffee-mode "~/.emacs.d/coffee-mode/coffee-mode.el")
 
 ;;; Markdown
 (autoload 'markdown-mode "markdown-mode/markdown-mode.el"
@@ -206,7 +183,6 @@
                             (auto-fill-mode 1)
                             (refill-mode -1)
                             (flyspell-mode 1)))
-(require 'typopunct)
 (require 'wc-mode)
 
 ;;; R
@@ -218,18 +194,6 @@
 ;;; C
 (add-hook 'c-mode-hook (lambda ()
                          (show-paren-mode t)))
-
-;;; Proof General
-(load-file "~/.emacs.d/ProofGeneral-4.2/generic/proof-site.el")
-
-;;; Agda
-(add-to-list 'load-path
-             "~/.emacs.d/agda-mode")
-(require 'agda2)
-
-;;; Datalog
-
-(require 'lb-datalog-mode)
 
 ;;; Pandoc
 

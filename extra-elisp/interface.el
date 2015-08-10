@@ -29,6 +29,8 @@
 (setq-default indent-tabs-mode nil)
 
 ;;; Color-Theme
+(require 'color-theme)
+(color-theme-initialize)
 (load-theme 'zenburn t)
 
 ;; self explanatory
@@ -38,8 +40,6 @@
 
 ;; useful key bindings
 (global-set-key [\\r] 'newline-and-indent)
-;; (global-set-key (kbd "C-c w") 'clipboard-kill-ring-save)
-;; (global-set-key (kbd "C-c y") 'clipboard-yank)
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function
       (if (eq system-type 'gnu-linux)
@@ -76,41 +76,11 @@
 ;; fill-column
 (setq-default fill-column 80)
 (setq-default scroll-step 1)
-;; full screen
-(defun toggle-fullscreen (&optional f)
-  (interactive)
-  (let ((current-value (frame-parameter nil 'fullscreen)))
-    (set-frame-parameter nil 'fullscreen
-                         (if (equal 'fullboth current-value)
-                             (if (boundp 'old-fullscreen) old-fullscreen nil)
-                           (progn (setq old-fullscreen current-value)
-                                  'fullboth)))))
-
-(global-set-key [f11] 'toggle-fullscreen)
 
 ;; Make new frames fullscreen by default. Note: this hook doesn't do
 ;; anything to the initial frame if it's in your .emacs, since that file is
 ;; read _after_ the initial frame is created.
 (add-hook 'after-make-frame-functions 'toggle-fullscreen)
-
-;;; Longlines
-;; (if (file-exists-p "/home/danking/.emacs.d/longlines.el")
-;;     (autoload 'longlines-mode
-;;       "longlines.el"
-;;       "Minor mode for automatically wrapping long lines." t))
-
-;; default web browser
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "chromium")
-
-(add-to-list 'load-path "~/.emacs.d/site-lisp/eim")
-(autoload 'eim-use-package "eim" "Another emacs input method")
-(register-input-method
- "eim-wb" "euc-cn" 'eim-use-package
- "五笔" "汉字五笔输入法" "~/.emacs.d/site-lisp/eim/wb.txt")
-(register-input-method
- "eim-py" "euc-cn" 'eim-use-package
- "拼音" "汉字拼音输入法" "~/.emacs.d/site-lisp/eim/py.txt")
 
 ;; window margins toggling
 (defun toggle-wide-margins ()
@@ -120,16 +90,6 @@
         (set-window-margins nil 0 0)
         (set-window-margins nil 50 50))))
 (global-set-key (kbd "C-c n") 'toggle-wide-margins)
-
-;; TRANSPERNCY OOOH!
-(eval-when-compile (require 'cl))
-(set-frame-parameter nil 'alpha '(100 100))
-(defun toggle-transparency ()
-  (interactive)
-  (if (/= (cadr (frame-parameter nil 'alpha)) 100)
-      (set-frame-parameter nil 'alpha '(100 100))
-      (set-frame-parameter nil 'alpha '(85 50))))
-(global-set-key (kbd "C-c t") 'toggle-transparency)
 
 ;; Better Unicode Fonts
 (require 'unicode-fonts)

@@ -3,8 +3,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path
              (if (eq system-type 'gnu-linux)
-                 "/home/danking/.emacs.d"
-                 "/Users/danking/.emacs.d"))
+                 "/home/danking/.emacs.d/extra-elisp"
+                 "/Users/danking/.emacs.d/extra-elisp"))
 ;; on OS X, brew installs things here
 (add-to-list 'exec-path "/usr/local/bin")
 
@@ -25,8 +25,6 @@
 (require 'coding-utilities)
 (require 'general-utilities)
 (require 'org-setup)
-(require 'apps)
-(require 'etc)
 (require 'emacs-utilities)
 ;; if we don't have a system specific file, don't show an error, but if such a
 ;; file exists, load it.
