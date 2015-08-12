@@ -18,7 +18,7 @@
          unicode-fonts pcache persistent-soft list-utils pcache list-utils
          ucs-utils list-utils pcache persistent-soft list-utils pcache
          font-utils pcache persistent-soft list-utils pcache wc-mode
-         with-editor dash async zenburn)))
+         with-editor dash async zenburn markdown-mode+)))
   ;; list the repositories containing them
   (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			   ("marmalade" . "https://marmalade-repo.org/packages/")
