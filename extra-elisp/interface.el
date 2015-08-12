@@ -30,7 +30,6 @@
 
 ;;; Color-Theme
 (require 'color-theme)
-(color-theme-initialize)
 (require 'zenburn)
 (color-theme-zenburn)
 
