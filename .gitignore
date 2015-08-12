@@ -3,3 +3,6 @@ auto-save-list
 *.elc
 session*
 /abbrev_defs
+elpa/
+ido.last
+var/
