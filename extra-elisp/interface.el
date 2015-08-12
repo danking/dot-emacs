@@ -31,7 +31,8 @@
 ;;; Color-Theme
 (require 'color-theme)
 (color-theme-initialize)
-(load-theme 'zenburn t)
+(require 'zenburn)
+(color-theme-zenburn)
 
 ;; self explanatory
 (setq-default show-trailing-whitespace t)

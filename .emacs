@@ -10,11 +10,31 @@
 
 ;; package manager
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa"     . "http://melpa.org/packages/"))
-(package-initialize)
+(let ((package-list
+       '(color-theme ess flycheck-haskell let-alist dash haskell-mode flycheck
+         let-alist pkg-info epl dash haskell-mode let-alist magit magit-popup
+         dash async git-commit with-editor dash async dash with-editor dash
+         async dash async magit-popup dash async ox-reveal org pkg-info epl
+         unicode-fonts pcache persistent-soft list-utils pcache list-utils
+         ucs-utils list-utils pcache persistent-soft list-utils pcache
+         font-utils pcache persistent-soft list-utils pcache wc-mode
+         with-editor dash async zenburn)))
+  ;; list the repositories containing them
+  (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
+                           ("gnu" . "http://elpa.gnu.org/packages/")
+                           ("marmalade" . "http://marmalade-repo.org/packages/")))
+
+  ;; activate all the packages (in particular autoloads)
+  (package-initialize)
+
+  ;; fetch the list of packages available
+  (unless package-archive-contents
+    (package-refresh-contents))
+
+  ;; install the missing packages
+  (dolist (package package-list)
+    (unless (package-installed-p package)
+      (package-install package))))
 
 (require 'dot-emacs-utils)
 
