@@ -17,6 +17,7 @@
          dash
          epl
          ess
+         exec-path-from-shell
          flycheck
          flycheck-haskell
          font-utils
@@ -55,6 +56,11 @@
   (dolist (package package-list)
     (unless (package-installed-p package)
       (package-install package))))
+
+;; set the PATH from $PATH on OS X
+(require 'exec-path-from-shell)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 (require 'dot-emacs-utils)
 
