@@ -11,14 +11,34 @@
 ;; package manager
 (require 'package)
 (let ((package-list
-       '(color-theme ess flycheck-haskell let-alist dash haskell-mode flycheck
-         let-alist pkg-info epl dash haskell-mode let-alist magit magit-popup
-         dash async git-commit with-editor dash async dash with-editor dash
-         async dash async magit-popup dash async ox-reveal org pkg-info epl
-         unicode-fonts pcache persistent-soft list-utils pcache list-utils
-         ucs-utils list-utils pcache persistent-soft list-utils pcache
-         font-utils pcache persistent-soft list-utils pcache wc-mode
-         with-editor dash async zenburn markdown-mode+)))
+       '(
+         async
+         color-theme
+         dash
+         epl
+         ess
+         flycheck
+         flycheck-haskell
+         font-utils
+         git-commit
+         haskell-mode
+         let-alist
+         list-utils
+         magit
+         magit-gh-pulls
+         magit-popup
+         markdown-mode+
+         org
+         ox-reveal
+         pcache
+         persistent-soft
+         pkg-info
+         ucs-utils
+         unicode-fonts
+         wc-mode
+         with-editor
+         zenburn
+         )))
   ;; list the repositories containing them
   (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			   ("marmalade" . "https://marmalade-repo.org/packages/")
