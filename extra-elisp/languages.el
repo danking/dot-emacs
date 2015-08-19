@@ -182,7 +182,20 @@
           (lambda ()
             (local-set-key (kbd "C-<tab>") 'java-complete)
             (local-set-key (kbd "C-c ;") 'jtags-find-class)
+            (setq c-basic-offset 4)
+            (setq tab-width 4)
+            (setq indent-tabs-mode nil)
             ))
+
+(setq tags-table-list '(
+                        "/Users/daniel.king/projects/jdk8-source/"
+                        "/Users/daniel.king/projects/term-server"
+                        "/Users/daniel.king/projects/agent-master"
+                        "/Users/daniel.king/projects/aggregation-server"
+                        "/Users/daniel.king/projects/provider-agent"
+                        ))
+(setq tags-revert-without-query 't)
+(setq tags-auto-read-changed-tag-files 't)
 
 ;;; CSS
 (setq css-indent-offset 2)
