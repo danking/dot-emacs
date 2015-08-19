@@ -155,9 +155,31 @@
 ;;; Java
 (require 'java-complete) ;; TODO: make this actually work right
 (require 'java-mode-indent-annotations)
+
+(defun jtags-find-class (class-name)
+  (interactive "sClass name: \n")
+  (let ((definition (jtags-lookup-identifier class-name)))
+    (if (null definition)
+        (message "Class not found!")
+
+      ;; Record whence we came
+      (if (featurep 'xemacs)
+          (push-tag-mark)
+        (ring-insert find-tag-marker-ring (point-marker)))
+
+      (find-file (jtags-definition-file definition))
+      (goto-char (point-min))
+      (forward-line (1- (jtags-definition-line definition)))
+      (message "Found %s in %s"
+               (jtags-definition-name definition)
+               (jtags-definition-file definition)))))
+
 (add-hook 'java-mode-hook 'java-mode-indent-annotations-setup)
-(add-hook 'java-mode-hook (lambda () (local-set-key (kbd "C-<tab>")
-                                                    'java-complete)))
+(add-hook 'java-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-<tab>") 'java-complete)
+            (local-set-key (kbd "C-c ;") 'jtags-find-class)
+            ))
 
 ;;; CSS
 (setq css-indent-offset 2)
