@@ -168,8 +168,7 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
 
 ;;; Markdown
-(autoload 'markdown-mode "markdown-mode/markdown-mode.el"
-  "markdown mode" t)
+(require 'markdown-mode)
 (add-to-list 'auto-mode-alist
              '("\\.\\(md\\|text\\|markdown\\|mkd\\)$" . markdown-mode))
 (add-hook 'markdown-mode-hook (lambda ()
