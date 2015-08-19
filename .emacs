@@ -23,6 +23,7 @@
          font-utils
          git-commit
          haskell-mode
+         jtags
          let-alist
          list-utils
          magit
