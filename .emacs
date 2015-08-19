@@ -39,6 +39,7 @@
          unicode-fonts
          wc-mode
          with-editor
+         yaml-mode
          zenburn
          )))
   ;; list the repositories containing them
