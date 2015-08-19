@@ -188,11 +188,12 @@
             ))
 
 (setq tags-table-list '(
-                        "/Users/daniel.king/projects/jdk8-source/"
                         "/Users/daniel.king/projects/term-server"
                         "/Users/daniel.king/projects/agent-master"
                         "/Users/daniel.king/projects/aggregation-server"
                         "/Users/daniel.king/projects/provider-agent"
+                        "/Users/daniel.king/projects/resolver"
+                        "/Users/daniel.king/projects/jdk8-source/"
                         ))
 (setq tags-revert-without-query 't)
 (setq tags-auto-read-changed-tag-files 't)
