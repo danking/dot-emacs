@@ -193,6 +193,7 @@
                         "/Users/daniel.king/projects/aggregation-server"
                         "/Users/daniel.king/projects/provider-agent"
                         "/Users/daniel.king/projects/resolver"
+                        "/Users/daniel.king/projects/pubsub"
                         "/Users/daniel.king/projects/jdk8-source/"
                         ))
 (setq tags-revert-without-query 't)
