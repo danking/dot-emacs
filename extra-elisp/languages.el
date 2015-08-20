@@ -155,6 +155,7 @@
 ;;; Java
 (require 'java-complete) ;; TODO: make this actually work right
 (require 'java-mode-indent-annotations)
+(require 'flymake-maven)
 
 (defun jtags-find-class (class-name)
   (interactive "sClass name: \n")
@@ -175,6 +176,8 @@
                (jtags-definition-file definition)))))
 
 (add-hook 'java-mode-hook 'java-mode-indent-annotations-setup)
+(add-hook 'java-mode-hook 'flymake-java-mvn-mode-hook)
+(add-hook 'java-mode-hook 'flymake-mode-on)
 (add-hook 'java-mode-hook
           (lambda ()
             (local-set-key (kbd "C-<tab>") 'java-complete)
