@@ -20,6 +20,7 @@
          exec-path-from-shell
          flycheck
          flycheck-haskell
+         flymake
          font-utils
          git-commit
          haskell-mode
