@@ -176,8 +176,8 @@
                (jtags-definition-file definition)))))
 
 (add-hook 'java-mode-hook 'java-mode-indent-annotations-setup)
-(add-hook 'java-mode-hook 'flymake-java-mvn-mode-hook)
 (add-hook 'java-mode-hook 'flymake-mode-on)
+(add-hook 'java-mode-hook 'flymake-java-mvn-mode-hook) ;; must come after flymake-mode-on
 (add-hook 'java-mode-hook
           (lambda ()
             (local-set-key (kbd "C-<tab>") 'java-complete)
