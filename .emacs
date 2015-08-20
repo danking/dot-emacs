@@ -24,6 +24,7 @@
          flycheck
          flycheck-haskell
          flymake
+         flymake-cursor
          font-utils
          git-commit
          haskell-mode
