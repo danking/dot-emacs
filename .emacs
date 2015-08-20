@@ -1,12 +1,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Dan King's .emacs                                                        ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path
-             (if (eq system-type 'gnu-linux)
-                 "/home/danking/.emacs.d/extra-elisp"
-                 "/Users/danking/.emacs.d/extra-elisp"))
+(defconst home-dir
+  (expand-file-name "~")
+  "Current user's home directory")
+
+(add-to-list 'load-path (concat home-dir "/.emacs.d/extra-elisp"))
+
 ;; on OS X, brew installs things here
-(add-to-list 'exec-path "/usr/local/bin")
+(when (eq system-type 'darwin)
+  (add-to-list 'exec-path "/usr/local/bin"))
 
 ;; package manager
 (require 'package)

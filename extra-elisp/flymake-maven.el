@@ -6,7 +6,7 @@
  "Filename extensions that switch on flymake-mvn mode syntax checks")
 
 (defun flymake-java-mvn-init ()
-  (list "/Users/daniel.king/bin/flymake-maven" (list buffer-file-name)))
+  (list (concat home-dir "/bin/flymake-maven") (list buffer-file-name)))
 
 (defun flymake-java-mvn-load ()
   (push '(".+\\.java$" flymake-java-mvn-init) flymake-allowed-file-name-masks)
