@@ -4,6 +4,15 @@
 
 (require 'latex-pdf-preview)
 
+;;; Prog Mode
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
+;; tells flyspell to spell-check javadoc
+(add-hook 'flyspell-prog-mode-hook
+          (lambda ()
+            (add-to-list 'flyspell-prog-text-faces 'font-lock-doc-string-face)))
+
+
 ;;; Python
 (setq-default python-indent 2)
 
@@ -185,6 +194,7 @@
             (setq c-basic-offset 4)
             (setq tab-width 4)
             (setq indent-tabs-mode nil)
+            (local-set-key (kbd "C-c :") 'dash-at-point)
             ))
 
 (setq tags-table-list '(
@@ -206,6 +216,14 @@
 ;;; Javascript
 (autoload 'javascript-mode "javascript" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
+;; (flycheck-define-checker jsxhint-checker
+;;   "A JSX syntax and style checker based on JSXHint."
+
+;;   :command ("jsxhint" source)
+;;   :error-patterns
+;;   ((error line-start (1+ nonl) ": line " line ", col " column ", " (message) line-end))
+;;   :modes (web-mode))
+
 
 ;;; Markdown
 (require 'markdown-mode)
