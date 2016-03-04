@@ -165,6 +165,7 @@
 (require 'java-complete) ;; TODO: make this actually work right
 (require 'java-mode-indent-annotations)
 (require 'flymake-maven)
+(require 'java-mode-indent-annotations)
 
 (defun jtags-find-class (class-name)
   (interactive "sClass name: \n")
@@ -195,6 +196,7 @@
             (setq tab-width 4)
             (setq indent-tabs-mode nil)
             (local-set-key (kbd "C-c :") 'dash-at-point)
+            (setq-default fill-column 100) ; tnx
             ))
 
 (setq tags-table-list '(
