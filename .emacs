@@ -40,6 +40,7 @@
          pcache
          persistent-soft
          pkg-info
+         scala-mode
          ucs-utils
          unicode-fonts
          wc-mode
