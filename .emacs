@@ -18,6 +18,7 @@
          async
          color-theme
          dash
+         ensime
          epl
          ess
          exec-path-from-shell
