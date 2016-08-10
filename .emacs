@@ -33,7 +33,6 @@
          let-alist
          list-utils
          magit
-         magit-gh-pulls
          magit-popup
          markdown-mode+
          org
