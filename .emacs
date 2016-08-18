@@ -42,6 +42,7 @@
          pkg-info
          scala-mode
          ucs-utils
+         unfill
          unicode-fonts
          wc-mode
          with-editor
