@@ -4,6 +4,14 @@
 
 (require 'latex-pdf-preview)
 
+;;; Scala
+(setq ensime-startup-notification nil)
+
+;;; Rust
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(setq rust-format-on-save t)
+;; (add-hook 'prog-mode-hook 'lsp-mode)
+
 ;;; Python
 (setq-default python-indent 2)
 
@@ -176,8 +184,8 @@
                (jtags-definition-file definition)))))
 
 (add-hook 'java-mode-hook 'java-mode-indent-annotations-setup)
-(add-hook 'java-mode-hook 'flymake-mode-on)
-(add-hook 'java-mode-hook 'flymake-java-mvn-mode-hook) ;; must come after flymake-mode-on
+;; (add-hook 'java-mode-hook 'flymake-mode-on)
+;; (add-hook 'java-mode-hook 'flymake-java-mvn-mode-hook) ;; must come after flymake-mode-on
 (add-hook 'java-mode-hook
           (lambda ()
             (local-set-key (kbd "C-<tab>") 'java-complete)
