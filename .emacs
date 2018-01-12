@@ -15,7 +15,6 @@
 (require 'package)
 (let ((package-list
        '(
-         rust-mode
          async
          color-theme
          dash
