@@ -5,6 +5,7 @@
 (setq org-reveal-root "file:///Users/danking/borg/reveal.js-master/")
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(setq org-element-use-cache nil)
 
 ;; key bindings
 (global-set-key (kbd "C-c l") 'org-store-link)

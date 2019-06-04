@@ -16,8 +16,11 @@
 (let ((package-list
        '(
          async
-         color-theme
+         conda
          dash
+         docker
+         dockerfile-mode
+         elpy
          epl
          ess
          exec-path-from-shell
@@ -25,20 +28,22 @@
          flycheck
          flycheck-haskell
          flymake
-         flymake-cursor
          font-utils
          git-commit
          haskell-mode
+         jedi
          jtags
          let-alist
          list-utils
          magit
          magit-popup
-         markdown-mode+
+         markdown-mode
          org
          ox-reveal
+         pandoc-mode
          pcache
          persistent-soft
+         projectile
          pkg-info
          rust-mode
          scala-mode
@@ -54,7 +59,6 @@
   ;; list the repositories containing them
   (setq package-archives
         '(("gnu" . "http://elpa.gnu.org/packages/")
-          ("marmalade" . "https://marmalade-repo.org/packages/")
           ("melpa-stable" . "http://stable.melpa.org/packages/")))
 
   ;; activate all the packages (in particular autoloads)
@@ -73,6 +77,11 @@
 (require 'exec-path-from-shell)
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+(exec-path-from-shell-copy-env "JAVA_HOME")
+(exec-path-from-shell-copy-env "LC_ALL")
+(exec-path-from-shell-copy-env "LANG")
+(exec-path-from-shell-copy-env "GOOGLE_APPLICATION_CREDENTIALS")
+(exec-path-from-shell-copy-env "CXX")
 
 (require 'dot-emacs-utils)
 
@@ -109,10 +118,15 @@
  '(agda2-include-dirs (quote ("." "/Users/danking/borg/agda-stdlib/src")))
  '(ansi-color-names-vector
    ["#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf" "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"])
+ '(background-color "#fcf4dc")
+ '(background-mode light)
  '(c-offsets-alist nil)
+ '(conda-anaconda-home "/Users/dking/anaconda2/")
+ '(cursor-color "#52676f")
  '(custom-safe-themes
    (quote
-    ("e6fc3dce56058259b0f17ad11a9f38a516aa5215792b5e625296049a9c955f9d" "bb3efc4940d4a22799e00e66ae3b530f5db5bd2930d330eab13de8da182f47b8" "5e2711f52396e5b919b1d800791749136362a418886a71927de1606d375302ff" "36c39ff561a91f1b2f03fe90228073bfac0a5664580ee649e249caa3c8361b3f" "8b7c845da6ef5e6a832b41e41d2a2cdd0bb1533de63cc45cb9db650e85471ac1" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
+    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "cd736a63aa586be066d5a1f0e51179239fe70e16a9f18991f6f5d99732cabb32" "fe666e5ac37c2dfcf80074e88b9252c71a22b6f5d2f566df9a7aa4f9bea55ef8" "6b289bab28a7e511f9c54496be647dc60f5bd8f9917c9495978762b99d8c96a0" "b54826e5d9978d59f9e0a169bbd4739dd927eead3ef65f56786621b53c031a7c" "6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "e6fc3dce56058259b0f17ad11a9f38a516aa5215792b5e625296049a9c955f9d" "bb3efc4940d4a22799e00e66ae3b530f5db5bd2930d330eab13de8da182f47b8" "5e2711f52396e5b919b1d800791749136362a418886a71927de1606d375302ff" "36c39ff561a91f1b2f03fe90228073bfac0a5664580ee649e249caa3c8361b3f" "8b7c845da6ef5e6a832b41e41d2a2cdd0bb1533de63cc45cb9db650e85471ac1" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
+ '(elpy-rpc-ignored-buffer-size 502400)
  '(erc-hide-list (quote ("JOIN" "NICK" "PART" "QUIT")))
  '(face-font-family-alternatives
    (quote
@@ -121,10 +135,15 @@
      ("Sans Serif" "helv" "helvetica" "arial" "fixed")
      ("helv" "helvetica" "arial" "fixed"))))
  '(fci-rule-color "#383838")
+ '(ffap-machine-p-known (quote reject))
+ '(flycheck-c/c++-clang-executable "/usr/local/opt/llvm/bin/clang++")
+ '(flycheck-c/c++-cppcheck-executable nil)
+ '(flycheck-clang-language-standard "c++2a")
  '(flycheck-ghc-package-databases
    (quote
     ("~/projects/maam/.cabal-sandbox/x86_64-osx-ghc-7.8.3-packages.conf.d")))
  '(flycheck-haskell-hdevtools-executable "~/.cabal/bin/hdevtools")
+ '(foreground-color "#52676f")
  '(geiser-default-implementation (quote racket))
  '(geiser-racket-extra-keywords
    (quote
@@ -158,7 +177,9 @@
  '(org-tree-slide-slide-in-effect nil)
  '(package-selected-packages
    (quote
-    (find-file-in-repository ein lsp-mode toml-mode rust-mode org-tree-slide sml-mode zenburn yaml-mode wc-mode unicode-fonts unfill ox-reveal markdown-mode+ magit-gh-pulls jtags groovy-mode gradle-mode flymake-cursor flycheck-haskell exec-path-from-shell ess ensime color-theme-solarized color-theme)))
+    (pyenv-mode magit kubernetes filladapt doom-themes color-theme-sanityinc-solarized conda dockerfile-mode docker docker-mode rope-read-mode elpy markdown-mode markdown-mode+ pandoc-mode projectile jedi find-file-in-repository ein lsp-mode toml-mode rust-mode org-tree-slide sml-mode zenburn yaml-mode wc-mode unicode-fonts unfill ox-reveal magit-gh-pulls jtags groovy-mode gradle-mode exec-path-from-shell ess ensime color-theme-solarized color-theme)))
+ '(python-environment-default-root-name "hail")
+ '(python-fill-docstring-style (quote pep-257-nn))
  '(quack-default-program "racket")
  '(quack-fontify-threesemi-p nil)
  '(quack-pltish-keywords-to-fontify
@@ -168,6 +189,8 @@
    (quote
     ("racket" "racket -il typed/racket" "scheme48" "scsh")))
  '(scheme-program-name "racket")
+ '(shr-blocked-images ".*")
+ '(shr-use-fonts nil)
  '(smerge-command-prefix "C-c C-s")
  '(typopunct-buffer-language (quote english))
  '(unicode-fonts-block-font-mapping
@@ -563,29 +586,9 @@
      ("Yijing Hexagram Symbols"
       ("Apple Symbols" "DejaVu Sans:width=condensed" "WenQuanYi Zen Hei Mono" "BabelStone Han" "Symbola" "Quivira")))))
  '(vc-follow-symlinks t)
- '(wc-modeline-format "WC[%W%w/%tw/%tc]"))
-
-;; who sets these shit colors?
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#3F3F3F" :foreground "#DCDCCC" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "apple" :family "Monaco"))))
- '(agda2-highlight-datatype-face ((t (:foreground "RoyalBlue3"))))
- '(agda2-highlight-function-face ((t (:foreground "RoyalBlue3"))))
- '(agda2-highlight-postulate-face ((t (:foreground "RoyalBlue3"))))
- '(agda2-highlight-primitive-face ((t (:foreground "RoyalBlue3"))))
- '(agda2-highlight-primitive-type-face ((t (:foreground "RoyalBlue3"))))
- '(agda2-highlight-record-face ((t (:foreground "RoyalBlue3"))))
- '(eim-string-face ((t (:underline t :height 1.0))))
- '(eim-tooltip-face ((t (:inherit tooltip :height 2.0))))
- '(quack-pltish-comment-face ((t (:foreground "sandy brown"))))
- '(quack-pltish-defn-face ((t (:foreground "#bf0" :weight bold))))
- '(quack-pltish-keyword-face ((t (:foreground "#f00" :weight bold))))
- '(quack-pltish-paren-face ((t (:foreground "gray"))))
- '(quack-pltish-selfeval-face ((t (:foreground "#0a8" :weight normal))))
- '(tooltip ((t (:inherit variable-pitch :background "light yellow" :foreground "black" :height 4.0)))))
+ '(visible-bell t)
+ '(wc-modeline-format "WC[%W%w/%tw/%tc]")
+ '(whitespace-global-modes (quote (not eww-mode))))
 
 (put 'narrow-to-page 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
@@ -594,3 +597,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  bertlham                                                                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight extra-light :height 120 :width normal :foundry "nil" :family "Iosevka Slab"))))
+ '(fixed-pitch ((t nil))))

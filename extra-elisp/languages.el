@@ -13,7 +13,37 @@
 ;; (add-hook 'prog-mode-hook 'lsp-mode)
 
 ;;; Python
-(setq-default python-indent 2)
+(require 'conda)
+;; if you want interactive shell support, include:
+(conda-env-initialize-interactive-shells)
+;; if you want eshell support, include:
+(conda-env-initialize-eshell)
+;; if you want auto-activation (see below for details), include:
+(conda-env-autoactivate-mode t)
+(setq-default python-indent 4)
+(add-hook 'python-mode-hook 'jedi:setup)
+(add-hook 'python-mode-hook
+          (lambda ()
+            ;; https://github.com/flycheck/flycheck/issues/179
+            ;; https://github.com/flycheck/flycheck/issues/153
+            (setq-local flycheck-highlighting-mode 'lines)))
+(setq jedi:setup-keys t)                      ; optional
+(setq jedi:complete-on-dot t)                 ; optional
+(elpy-enable)
+(defadvice flymake-post-syntax-check (before flymake-force-check-was-interrupted)
+  (setq flymake-check-was-interrupted t))
+(ad-activate 'flymake-post-syntax-check)
+(setenv "WORKON_HOME" "/Users/dking/anaconda2/envs")
+(pyenv-mode)
+(defun projectile-pyenv-mode-set ()
+  "Set pyenv version matching project name."
+  (let ((project (projectile-project-name)))
+    (if (member project (pyenv-mode-versions))
+        (pyenv-mode-set project)
+      (pyenv-mode-unset))))
+(add-hook 'projectile-after-switch-project-hook 'projectile-pyenv-mode-set)
+(require 'flycheck)
+(flycheck-add-next-checker 'python-flake8 'python-pylint)
 
 ;;; Scheme
 ;; Racket
@@ -216,6 +246,7 @@
                             (refill-mode -1)
                             (flyspell-mode 1)))
 (require 'wc-mode)
+(add-hook 'text-mode-hook #'filladapt-mode)
 
 ;;; R
 (require 'ess)

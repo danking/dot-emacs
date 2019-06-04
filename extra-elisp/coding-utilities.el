@@ -3,8 +3,6 @@
 
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
 
-(require 'flymake-cursor)
-
 (require 'ensime)
 
 (provide 'coding-utilities)

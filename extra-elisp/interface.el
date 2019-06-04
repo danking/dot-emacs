@@ -2,6 +2,8 @@
 ;;; Daniel King
 ;;; Sets up the UI elements the way I've grown acustomed to
 
+(projectile-global-mode)
+
 ;;; ido mode
 ;; improvement to M-x
 (global-set-key
@@ -27,11 +29,6 @@
 (setq-default c-basic-offset 2)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
-
-;;; Color-Theme
-(require 'color-theme)
-(require 'zenburn)
-(color-theme-zenburn)
 
 ;; self explanatory
 (setq-default show-trailing-whitespace t)
@@ -94,5 +91,7 @@
 ;; Better Unicode Fonts
 (require 'unicode-fonts)
 (unicode-fonts-setup)
+
+(add-hook 'eww-mode-hook (lambda () (setq show-trailing-whitespace nil)))
 
 (provide 'interface)
