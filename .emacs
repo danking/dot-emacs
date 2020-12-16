@@ -22,47 +22,46 @@
          dockerfile-mode
          elpy
          epl
-         ess
          exec-path-from-shell
          find-file-in-repository
+         filladapt
          flycheck
          flycheck-haskell
          flymake
          font-utils
+         ggtags
          git-commit
          haskell-mode
+         helm
+         helm-projectile
          jedi
-         jtags
          let-alist
          list-utils
+         ;; lsp-mode
+         ;; lsp-ui
          magit
          magit-popup
          markdown-mode
          org
-         ox-reveal
          pandoc-mode
          pcache
          persistent-soft
-         projectile
          pkg-info
+         projectile
          rust-mode
          scala-mode
-         toml-mode
          ucs-utils
          unfill
          unicode-fonts
+         use-package
          wc-mode
          with-editor
          yaml-mode
-         zenburn
          )))
   ;; list the repositories containing them
   (setq package-archives
         '(("gnu" . "http://elpa.gnu.org/packages/")
           ("melpa-stable" . "http://stable.melpa.org/packages/")))
-
-  ;; activate all the packages (in particular autoloads)
-  (package-initialize)
 
   ;; fetch the list of packages available
   (unless package-archive-contents
@@ -72,6 +71,11 @@
   (dolist (package package-list)
     (unless (package-installed-p package)
       (package-install package))))
+
+(setq use-package-always-defer t
+      use-package-always-ensure t
+      backup-directory-alist `((".*" . ,temporary-file-directory))
+      auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 ;; set the PATH from $PATH on OS X
 (require 'exec-path-from-shell)
@@ -93,6 +97,7 @@
 (require 'general-utilities)
 (require 'org-setup)
 (require 'emacs-utilities)
+(require 'scala-extra)
 ;; if we don't have a system specific file, don't show an error, but if such a
 ;; file exists, load it.
 (require 'system-specific nil 'noerror)
@@ -103,99 +108,134 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(LaTeX-command "pdflatex")
- '(TeX-view-predicate-list (quote ((os-x-p (eq system-type (quote darwin))))))
- '(TeX-view-program-list (quote (("os-x-open" "open %o"))))
+ '(TeX-view-predicate-list '((os-x-p (eq system-type 'darwin))))
+ '(TeX-view-program-list '(("os-x-open" "open %o")))
  '(TeX-view-program-selection
-   (quote
-    (((output-dvi style-pstricks)
+   '(((output-dvi style-pstricks)
       "dvips and gv")
      (output-dvi "xdvi")
      ((output-pdf os-x-p)
       "os-x-open")
      (output-pdf "Evince")
-     (output-html "xdg-open"))))
- '(agda2-highlight-level (quote interactive))
- '(agda2-include-dirs (quote ("." "/Users/danking/borg/agda-stdlib/src")))
+     (output-html "xdg-open")))
+ '(agda2-highlight-level 'interactive)
+ '(agda2-include-dirs '("." "/Users/danking/borg/agda-stdlib/src"))
  '(ansi-color-names-vector
    ["#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf" "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"])
  '(background-color "#fcf4dc")
  '(background-mode light)
- '(c-offsets-alist nil)
+ '(c-offsets-alist '((innamespace . +)))
+ '(company-auto-complete nil)
+ '(compilation-error-regexp-alist
+   '(("^\\[error\\] +\\([A-z0-9/.]+\\):\\([0-9]+\\):\\([0-9]+\\):.*" 1 2 3)
+     ("^\\([^:
+\"]+\\):\\([0-9]+\\):\\([0-9]+\\)" 1 2 3)
+     ("load-handler: expected a `module' declaration for `[^']+' in \"\\([^:
+\"]+\\)\", but found something else" 1 quack-compile-no-line-number)
+     ("setup-plt: Error during Compiling .zos for [^
+]+ (\\([^
+)]+\\))" 1 quack-compile-no-line-number)
+     ("setup-plt: +\\(?:WARNING: +\\)\\([^:
+]+\\)::" 1 quack-compile-no-line-number)
+     ("setup-plt: +\\(?:WARNING: +\\)\\([^:
+ ][^:
+]*\\):\\([0-9]+\\):\\([0-9]+\\)" 1 2 3)
+     ("load-handler: expected a `module' declaration for `[^'
+]+' in #<path:\\([^>
+]+\\)>[^
+]+" 1 quack-compile-no-line-number)
+     ("default-load-handler: cannot open input-file: " nil quack-compile-no-line-number)
+     absoft ada aix ant bash borland python-tracebacks-and-caml cmake cmake-info comma cucumber msft edg-1 edg-2 epc ftnchek iar ibm irix java jikes-file maven jikes-line clang-include gcc-include ruby-Test::Unit gnu lcc makepp mips-1 mips-2 msft omake oracle perl php rxp sparc-pascal-file sparc-pascal-line sparc-pascal-example sun sun-ada watcom 4bsd gcov-file gcov-header gcov-nomark gcov-called-line gcov-never-called perl--Pod::Checker perl--Test perl--Test2 perl--Test::Harness weblint guile-file guile-line))
  '(conda-anaconda-home "/Users/dking/anaconda2/")
  '(cursor-color "#52676f")
  '(custom-safe-themes
-   (quote
-    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "cd736a63aa586be066d5a1f0e51179239fe70e16a9f18991f6f5d99732cabb32" "fe666e5ac37c2dfcf80074e88b9252c71a22b6f5d2f566df9a7aa4f9bea55ef8" "6b289bab28a7e511f9c54496be647dc60f5bd8f9917c9495978762b99d8c96a0" "b54826e5d9978d59f9e0a169bbd4739dd927eead3ef65f56786621b53c031a7c" "6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "e6fc3dce56058259b0f17ad11a9f38a516aa5215792b5e625296049a9c955f9d" "bb3efc4940d4a22799e00e66ae3b530f5db5bd2930d330eab13de8da182f47b8" "5e2711f52396e5b919b1d800791749136362a418886a71927de1606d375302ff" "36c39ff561a91f1b2f03fe90228073bfac0a5664580ee649e249caa3c8361b3f" "8b7c845da6ef5e6a832b41e41d2a2cdd0bb1533de63cc45cb9db650e85471ac1" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
+   '("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "cd736a63aa586be066d5a1f0e51179239fe70e16a9f18991f6f5d99732cabb32" "fe666e5ac37c2dfcf80074e88b9252c71a22b6f5d2f566df9a7aa4f9bea55ef8" "6b289bab28a7e511f9c54496be647dc60f5bd8f9917c9495978762b99d8c96a0" "b54826e5d9978d59f9e0a169bbd4739dd927eead3ef65f56786621b53c031a7c" "6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "e6fc3dce56058259b0f17ad11a9f38a516aa5215792b5e625296049a9c955f9d" "bb3efc4940d4a22799e00e66ae3b530f5db5bd2930d330eab13de8da182f47b8" "5e2711f52396e5b919b1d800791749136362a418886a71927de1606d375302ff" "36c39ff561a91f1b2f03fe90228073bfac0a5664580ee649e249caa3c8361b3f" "8b7c845da6ef5e6a832b41e41d2a2cdd0bb1533de63cc45cb9db650e85471ac1" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default))
+ '(display-buffer-alist nil)
+ '(display-buffer-reuse-frames t)
+ '(elpy-modules
+   '(elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults))
  '(elpy-rpc-ignored-buffer-size 502400)
- '(erc-hide-list (quote ("JOIN" "NICK" "PART" "QUIT")))
+ '(elpy-rpc-python-command "/Users/dking/miniconda3/bin/python")
+ '(elpy-rpc-virtualenv-path 'default)
+ '(erc-hide-list '("JOIN" "NICK" "PART" "QUIT"))
  '(face-font-family-alternatives
-   (quote
-    (("dejavu sans mono" "Monospace" "courier" "fixed")
+   '(("dejavu sans mono" "Monospace" "courier" "fixed")
      ("courier" "CMU Typewriter Text" "fixed")
      ("Sans Serif" "helv" "helvetica" "arial" "fixed")
-     ("helv" "helvetica" "arial" "fixed"))))
+     ("helv" "helvetica" "arial" "fixed")))
  '(fci-rule-color "#383838")
- '(ffap-machine-p-known (quote reject))
+ '(ffap-machine-p-known 'reject)
  '(flycheck-c/c++-clang-executable "/usr/local/opt/llvm/bin/clang++")
  '(flycheck-c/c++-cppcheck-executable nil)
- '(flycheck-clang-language-standard "c++2a")
+ '(flycheck-check-syntax-automatically '(save idle-change mode-enabled))
+ '(flycheck-clang-args '("--garbage-not-an-arg"))
+ '(flycheck-clang-includes
+   '("/Users/dking/projects/hail/hail/src/main/resources/include/hail"))
+ '(flycheck-clang-language-standard nil)
+ '(flycheck-gcc-language-standard nil)
  '(flycheck-ghc-package-databases
-   (quote
-    ("~/projects/maam/.cabal-sandbox/x86_64-osx-ghc-7.8.3-packages.conf.d")))
+   '("~/projects/maam/.cabal-sandbox/x86_64-osx-ghc-7.8.3-packages.conf.d"))
  '(flycheck-haskell-hdevtools-executable "~/.cabal/bin/hdevtools")
+ '(flycheck-idle-change-delay 2)
  '(foreground-color "#52676f")
- '(geiser-default-implementation (quote racket))
+ '(geiser-default-implementation 'racket)
  '(geiser-racket-extra-keywords
-   (quote
-    ("define-syntax-rule" "provide" "require" "unless" "when" "with-handlers" "define-syntax-class" "module" "module*" "module+" "for" "for*" "for/fold" "for/vector" "for/first" "for/last" "for/list" "for*/fold" "for*/first" "for*/last" "define-values" "define/match" "match-define" "match-lambda" "match-lambda*" "match-lambda**" "for*/matrix:" "fo/matrix:")))
+   '("define-syntax-rule" "provide" "require" "unless" "when" "with-handlers" "define-syntax-class" "module" "module*" "module+" "for" "for*" "for/fold" "for/vector" "for/first" "for/last" "for/list" "for*/fold" "for*/first" "for*/last" "define-values" "define/match" "match-define" "match-lambda" "match-lambda*" "match-lambda**" "for*/matrix:" "fo/matrix:"))
  '(geiser-racket-init-file "~/.racketrc")
  '(global-flycheck-mode t nil (flycheck))
- '(ido-create-new-buffer (quote never))
+ '(grep-command "git --no-pager grep -nHr -e ")
+ '(grep-find-command
+   '("find . -type f -exec git --no-pager grep -nHr -e  /Users/dking/projects/hail \\{\\} +" . 77))
+ '(grep-use-null-device nil)
+ '(ido-create-new-buffer 'never)
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
- '(ido-mode (quote both) nil (ido))
- '(ido-use-filename-at-point (quote guess))
+ '(ido-mode 'both nil (ido))
+ '(ido-use-filename-at-point 'guess)
  '(ido-use-url-at-point t)
- '(initial-major-mode (quote text-mode))
- '(ispell-highlight-face (quote flyspell-incorrect))
+ '(initial-major-mode 'text-mode)
+ '(ispell-highlight-face 'flyspell-incorrect)
  '(ispell-program-name "aspell")
  '(javascript-indent-level 2)
  '(js-indent-level 2)
  '(js2-basic-offset 2)
  '(js2-enter-indents-newline nil)
+ '(lsp-enable-indentation nil)
+ '(lsp-file-watch-ignored
+   '("[/\\\\]\\.git$" "[/\\\\]\\.hg$" "[/\\\\]\\.bzr$" "[/\\\\]_darcs$" "[/\\\\]\\.svn$" "[/\\\\]_FOSSIL_$" "[/\\\\]\\.idea$" "[/\\\\]\\.ensime_cache$" "[/\\\\]\\.eunit$" "[/\\\\]node_modules$" "[/\\\\]\\.fslckout$" "[/\\\\]\\.tox$" "[/\\\\]\\.stack-work$" "[/\\\\]\\.bloop$" "[/\\\\]\\.metals$" "[/\\\\]target$" "[/\\\\]\\.ccls-cache$" "[/\\\\]\\.deps$" "[/\\\\]build-aux$" "[/\\\\]autom4te.cache$" "[/\\\\]\\.reference$" "[/\\\\]build" "[/\\\\].gradle" "[/\\\\]prebuilt" "[/\\\\]gradle" "[/\\\\]python" "[/\\\\]www"))
+ '(lsp-file-watch-threshold 5000)
+ '(lsp-log-io t)
+ '(lsp-metals-server-command "metals-emacs")
+ '(lsp-ui-sideline-enable nil)
  '(magit-revert-item-confirm t)
- '(major-mode (quote text-mode))
+ '(major-mode 'text-mode)
  '(max-lisp-eval-depth 10600)
  '(max-specpdl-size 20340)
  '(mingus-mpd-host "192.168.1.2")
  '(mingus-use-ido-mode-p t)
- '(org-drawers (quote ("PROPERTIES" "CLOCK" "LOGBOOK" "RESULTS" "NOTES")))
+ '(org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "RESULTS" "NOTES"))
  '(org-reveal-mathjax t)
  '(org-startup-folded t)
  '(org-startup-indented nil)
  '(org-table-use-standard-references nil)
  '(org-tree-slide-slide-in-effect nil)
  '(package-selected-packages
-   (quote
-    (pyenv-mode magit kubernetes filladapt doom-themes color-theme-sanityinc-solarized conda dockerfile-mode docker docker-mode rope-read-mode elpy markdown-mode markdown-mode+ pandoc-mode projectile jedi find-file-in-repository ein lsp-mode toml-mode rust-mode org-tree-slide sml-mode zenburn yaml-mode wc-mode unicode-fonts unfill ox-reveal magit-gh-pulls jtags groovy-mode gradle-mode exec-path-from-shell ess ensime color-theme-solarized color-theme)))
- '(python-environment-default-root-name "hail")
- '(python-fill-docstring-style (quote pep-257-nn))
+   '(w3m logview log4j-mode flycheck company-irony-c-headers helm-projectile helm ggtags use-package nhexl-mode magit kubernetes filladapt doom-themes color-theme-sanityinc-solarized conda dockerfile-mode docker docker-mode rope-read-mode elpy markdown-mode markdown-mode+ pandoc-mode projectile jedi find-file-in-repository ein rust-mode org-tree-slide sml-mode yaml-mode wc-mode unicode-fonts unfill magit-gh-pulls jtags groovy-mode gradle-mode exec-path-from-shell color-theme-solarized color-theme))
+ '(python-environment-default-root-name "hail2")
+ '(python-fill-docstring-style 'pep-257-nn)
  '(quack-default-program "racket")
  '(quack-fontify-threesemi-p nil)
  '(quack-pltish-keywords-to-fontify
-   (quote
-    ("and" "begin" "begin0" "c-declare" "c-lambda" "case" "case-lambda" "class" "class*" "class*/names" "class100" "class100*" "compound-unit/sig" "cond" "cond-expand" "define" "define-class" "define-const-structure" "define-constant" "define-embedded" "define-entry-point" "define-external" "define-for-syntax" "define-foreign-record" "define-foreign-type" "define-foreign-variable" "define-generic" "define-generic-procedure" "define-inline" "define-location" "define-macro" "define-method" "define-module" "define-opt" "define-public" "define-reader-ctor" "define-record" "define-record-printer" "define-record-type" "define-signature" "define-struct" "define-ustruct" "define-structure" "define-syntax" "define-syntax-set" "define-values" "define-values-for-syntax" "define-values/invoke-unit/sig" "define/match" "define/contract" "define/override" "define/private" "define/public" "define/kw" "delay" "do" "else" "exit-handler" "field" "if" "import" "inherit" "inherit-field" "init" "init-field" "init-rest" "instantiate" "interface" "lambda" "lambda/kw" "let" "let*" "let*-values" "let+" "let-syntax" "let-values" "let/ec" "letrec" "letrec-values" "letrec-syntax" "match" "match*" "match-lambda" "match-lambda*" "match-lambda**" "match-let" "match-let*" "match-letrec" "match-define" "mixin" "module" "module*" "module+" "opt-lambda" "or" "override" "override*" "namespace-variable-bind/invoke-unit/sig" "parameterize" "parameterize*" "parameterize-break" "private" "private*" "protect" "provide" "provide-signature-elements" "provide/contract" "public" "public*" "quasiquote" "quasisyntax" "quasisyntax/loc" "quote" "receive" "rename" "require" "require-for-syntax" "send" "send*" "set!" "set!-values" "signature->symbols" "super-instantiate" "syntax" "syntax/loc" "syntax-case" "syntax-case*" "syntax-parse" "syntax-error" "syntax-rules" "unit/sig" "unless" "unquote" "unquote-splicing" "when" "with-handlers" "with-method" "with-syntax" "define-type-alias" "define-struct:" "define:" "let:" "letrec:" "let*:" "lambda:" "plambda:" "case-lambda:" "pcase-lambda:" "require/typed" "require/opaque-type" "require-typed-struct" "inst" "ann" "for/matrix:" "for*/matrix:")))
- '(quack-programs
-   (quote
-    ("racket" "racket -il typed/racket" "scheme48" "scsh")))
+   '("and" "begin" "begin0" "c-declare" "c-lambda" "case" "case-lambda" "class" "class*" "class*/names" "class100" "class100*" "compound-unit/sig" "cond" "cond-expand" "define" "define-class" "define-const-structure" "define-constant" "define-embedded" "define-entry-point" "define-external" "define-for-syntax" "define-foreign-record" "define-foreign-type" "define-foreign-variable" "define-generic" "define-generic-procedure" "define-inline" "define-location" "define-macro" "define-method" "define-module" "define-opt" "define-public" "define-reader-ctor" "define-record" "define-record-printer" "define-record-type" "define-signature" "define-struct" "define-ustruct" "define-structure" "define-syntax" "define-syntax-set" "define-values" "define-values-for-syntax" "define-values/invoke-unit/sig" "define/match" "define/contract" "define/override" "define/private" "define/public" "define/kw" "delay" "do" "else" "exit-handler" "field" "if" "import" "inherit" "inherit-field" "init" "init-field" "init-rest" "instantiate" "interface" "lambda" "lambda/kw" "let" "let*" "let*-values" "let+" "let-syntax" "let-values" "let/ec" "letrec" "letrec-values" "letrec-syntax" "match" "match*" "match-lambda" "match-lambda*" "match-lambda**" "match-let" "match-let*" "match-letrec" "match-define" "mixin" "module" "module*" "module+" "opt-lambda" "or" "override" "override*" "namespace-variable-bind/invoke-unit/sig" "parameterize" "parameterize*" "parameterize-break" "private" "private*" "protect" "provide" "provide-signature-elements" "provide/contract" "public" "public*" "quasiquote" "quasisyntax" "quasisyntax/loc" "quote" "receive" "rename" "require" "require-for-syntax" "send" "send*" "set!" "set!-values" "signature->symbols" "super-instantiate" "syntax" "syntax/loc" "syntax-case" "syntax-case*" "syntax-parse" "syntax-error" "syntax-rules" "unit/sig" "unless" "unquote" "unquote-splicing" "when" "with-handlers" "with-method" "with-syntax" "define-type-alias" "define-struct:" "define:" "let:" "letrec:" "let*:" "lambda:" "plambda:" "case-lambda:" "pcase-lambda:" "require/typed" "require/opaque-type" "require-typed-struct" "inst" "ann" "for/matrix:" "for*/matrix:"))
+ '(quack-programs '("racket" "racket -il typed/racket" "scheme48" "scsh"))
+ '(sbt:prefer-nested-projects t)
  '(scheme-program-name "racket")
  '(shr-blocked-images ".*")
  '(shr-use-fonts nil)
  '(smerge-command-prefix "C-c C-s")
- '(typopunct-buffer-language (quote english))
+ '(typopunct-buffer-language 'english)
  '(unicode-fonts-block-font-mapping
-   (quote
-    (("Aegean Numbers"
+   '(("Aegean Numbers"
       ("Aegean" "Quivira"))
      ("Alchemical Symbols"
       ("Symbola" "Quivira"))
@@ -584,11 +624,11 @@
      ("Yi Syllables"
       ("ST Fangsong" "Apple Myungjo" "Microsoft Yi Baiti" "Nuosu SIL"))
      ("Yijing Hexagram Symbols"
-      ("Apple Symbols" "DejaVu Sans:width=condensed" "WenQuanYi Zen Hei Mono" "BabelStone Han" "Symbola" "Quivira")))))
+      ("Apple Symbols" "DejaVu Sans:width=condensed" "WenQuanYi Zen Hei Mono" "BabelStone Han" "Symbola" "Quivira"))))
  '(vc-follow-symlinks t)
  '(visible-bell t)
  '(wc-modeline-format "WC[%W%w/%tw/%tc]")
- '(whitespace-global-modes (quote (not eww-mode))))
+ '(whitespace-global-modes '(not eww-mode)))
 
 (put 'narrow-to-page 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
@@ -602,5 +642,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight extra-light :height 120 :width normal :foundry "nil" :family "Iosevka Slab"))))
- '(fixed-pitch ((t nil))))
+ '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 240 :width normal :foundry "nil" :family "Iosevka"))))
+ '(fixed-pitch ((t nil)))
+ '(flycheck-error ((t (:background "MistyRose1" :underline (:color "Red1" :style wave)))))
+ '(treemacs-directory-face ((t (:inherit font-lock-function-name-face))))
+ '(treemacs-file-face ((t (:inherit default)))))

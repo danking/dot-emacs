@@ -94,4 +94,16 @@
 
 (add-hook 'eww-mode-hook (lambda () (setq show-trailing-whitespace nil)))
 
+;; in compilation and grep mode, re-use the other window instead of opening a
+;; load of windows
+(defvar display-buffer-same-window-commands
+  '(occur-mode-goto-occurrence compile-goto-error))
+
+(add-to-list 'display-buffer-alist
+             '((lambda (&rest _)
+                 (memq this-command display-buffer-same-window-commands))
+               (display-buffer-reuse-window
+                display-buffer-same-window)
+               (inhibit-same-window . nil)))
+
 (provide 'interface)

@@ -1,7 +1,6 @@
 ;; (require 'org-install)
 ;; (require 'org)
 (add-to-list 'load-path "~/.emacs.d/org-reveal/")
-(require 'ox-reveal)
 (setq org-reveal-root "file:///Users/danking/borg/reveal.js-master/")
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
@@ -20,7 +19,6 @@
             (local-set-key (kbd "M-n") 'org-metaright)
             (local-set-key (kbd "M-p") 'org-metaleft)))
 
-(setq org-default-notes-file (concat org-directory "/notes.org"))
 ;; records completion time for TODO itmes
 (setq org-log-done t)
 

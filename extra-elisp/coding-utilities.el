@@ -3,7 +3,5 @@
 
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
 
-(require 'ensime)
-
 (provide 'coding-utilities)
 ;;; coding-utilities.el ends here

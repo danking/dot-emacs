@@ -5,7 +5,16 @@
 (require 'latex-pdf-preview)
 
 ;;; Scala
-(setq ensime-startup-notification nil)
+(require 'scala-extra)
+;; (use-package lsp-mode
+;;   ;; Optional - enable lsp-mode automatically in scala files
+;;   :hook (scala-mode . lsp)
+;;   :config (setq lsp-prefer-flymake nil))
+
+;; (use-package lsp-ui)
+;; (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
+;; (require 'ensime)
 
 ;;; Rust
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
@@ -13,13 +22,6 @@
 ;; (add-hook 'prog-mode-hook 'lsp-mode)
 
 ;;; Python
-(require 'conda)
-;; if you want interactive shell support, include:
-(conda-env-initialize-interactive-shells)
-;; if you want eshell support, include:
-(conda-env-initialize-eshell)
-;; if you want auto-activation (see below for details), include:
-(conda-env-autoactivate-mode t)
 (setq-default python-indent 4)
 (add-hook 'python-mode-hook 'jedi:setup)
 (add-hook 'python-mode-hook
@@ -30,18 +32,10 @@
 (setq jedi:setup-keys t)                      ; optional
 (setq jedi:complete-on-dot t)                 ; optional
 (elpy-enable)
-(defadvice flymake-post-syntax-check (before flymake-force-check-was-interrupted)
-  (setq flymake-check-was-interrupted t))
-(ad-activate 'flymake-post-syntax-check)
-(setenv "WORKON_HOME" "/Users/dking/anaconda2/envs")
-(pyenv-mode)
-(defun projectile-pyenv-mode-set ()
-  "Set pyenv version matching project name."
-  (let ((project (projectile-project-name)))
-    (if (member project (pyenv-mode-versions))
-        (pyenv-mode-set project)
-      (pyenv-mode-unset))))
-(add-hook 'projectile-after-switch-project-hook 'projectile-pyenv-mode-set)
+;; (defadvice flymake-post-syntax-check (before flymake-force-check-was-interrupted)
+;;   (setq flymake-check-was-interrupted t))
+;; (ad-activate 'flymake-post-syntax-check)
+;; (setenv "WORKON_HOME" "/Users/dking/anaconda2/envs")
 (require 'flycheck)
 (flycheck-add-next-checker 'python-flake8 'python-pylint)
 
@@ -248,15 +242,39 @@
 (require 'wc-mode)
 (add-hook 'text-mode-hook #'filladapt-mode)
 
-;;; R
-(require 'ess)
-
 ;;; Erlang
 (add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
 
-;;; C
-(add-hook 'c-mode-hook (lambda ()
-                         (show-paren-mode t)))
+;;; C/C++
+;; (use-package company-c-headers
+;;   :init
+;;   (add-to-list 'company-backends 'company-c-headers))
+
+;; hs-minor-mode for folding source code
+(add-hook 'c-mode-common-hook 'hs-minor-mode)
+(setq c-default-style "linux")
+
+(require 'cc-mode)
+(use-package semantic)
+(require 'semantic)
+
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(global-semantic-stickyfunc-mode 1)
+
+(semantic-mode 1)
+
+;; Enable EDE only in C/C++
+(require 'ede)
+(global-ede-mode)
+
+(require 'ggtags)
+
+(ggtags-mode 1)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+              (ggtags-mode 1))))
 
 ;;; Pandoc
 
