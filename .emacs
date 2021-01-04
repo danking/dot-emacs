@@ -69,7 +69,6 @@
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pos-tip-background-color "#4F4F4F")
  '(pos-tip-foreground-color "#FFFFEF")
- '(projectile-mode t nil (projectile))
  '(scroll-bar-mode nil)
  '(show-trailing-whitespace t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#7F9F7F" "#4F4F4F" 0.2))
@@ -134,6 +133,8 @@
 ;; Enable incremental completion for M-x.
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+;; Start projectile mode.
+(projectile-mode)
 ;; Enter projectile mode with C-c p. Try out C-c p f
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
