@@ -34,8 +34,12 @@
  '(frame-background-mode 'dark)
  '(global-flycheck-mode t)
  '(global-whitespace-mode t)
+ '(helm-M-x-fuzzy-match t)
+ '(helm-apropos-fuzzy-match t)
  '(helm-buffers-fuzzy-matching t)
+ '(helm-completion-in-region-fuzzy-match t)
  '(helm-completion-style 'helm-fuzzy)
+ '(helm-locate-fuzzy-match t)
  '(helm-mode t)
  '(helm-mode-fuzzy-match t)
  '(highlight-changes-colors '("#DC8CC3" "#bbb0cb"))
@@ -132,10 +136,12 @@
 
 ;; Enable incremental completion for M-x.
 (global-set-key (kbd "M-x") 'helm-M-x)
+;; Replace normal find-files with Helm find-files.
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;; Start projectile mode.
 (projectile-mode)
-;; Enter projectile mode with C-c p. Try out C-c p f
+;; Enter projectile mode with C-c p. Try out  C-c p h  to search for files in the current project.
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 
