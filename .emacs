@@ -186,6 +186,16 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
+;; Enable spellcheck in varoius plain text documents
+(dolist (hook '(text-mode-hook
+                markdown-mode
+                change-log-mode-hook
+                log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode))))
+;; Enable spellcheck in source code comments
+(dolist (hook '(c++-mode
+                python-mode))
+  (add-hook hook (lambda () (flyspell-prog-mode))))
 
 (provide 'emacs)
 ;;; .emacs ends here
