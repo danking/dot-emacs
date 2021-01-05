@@ -184,7 +184,7 @@
 
 ;; Set the PATH appropriately for Mac OS X Homebrew users
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin")))
+(setq-default exec-path (append exec-path '("/usr/local/bin")))
 
 ;; Enable spellcheck in varoius plain text documents
 (dolist (hook '(text-mode-hook

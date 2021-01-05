@@ -30,7 +30,7 @@ Projectile is a suite of project-focused commands. Projectile considers every gi
 "project".
 
 - `C-c p h` performs a fuzzy-search for files in this project.
-- `C-c p r` performs a `ripgrep` search over all files in this project.
+- `C-c p s r` performs a `ripgrep` search over all files in this project.
 
 ### Python
 When editing Python, there are three important Emacs packages: `elpy`, `flycheck`, and `pyvenv`.
