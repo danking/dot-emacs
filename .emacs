@@ -34,6 +34,16 @@
  '(frame-background-mode 'dark)
  '(global-flycheck-mode t)
  '(global-whitespace-mode t)
+ '(grep-command "rg --no-heading -nHr --null -e ")
+ '(grep-find-command
+   '("find . -type f -exec rg --no-heading -nHr --null -e \\{\\} +" . 42))
+ '(grep-find-template
+   "find <D> <X> -type f <F> -exec rg <C> --no-heading -nH --null -e <R> \\{\\} +")
+ '(grep-find-use-xargs 'exec-plus)
+ '(grep-highlight-matches nil)
+ '(grep-template "rg <X> <C> --no-heading -nH --null -e <R> <F>")
+ '(grep-use-null-device nil)
+ '(grep-use-null-filename-separator t)
  '(helm-M-x-fuzzy-match t)
  '(helm-apropos-fuzzy-match t)
  '(helm-buffers-fuzzy-matching t)
@@ -69,10 +79,11 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(color-theme-sanityinc-solarized scala-mode projectile helm magit flycheck-pycheckers flycheck-indicator flycheck-mypy flycheck-color-mode-line flymake-python-pyflakes markdown-mode solarized-theme zenburn-theme gruvbox-theme dracula-theme elpy use-package))
+   '(ripgrep ein color-theme-sanityinc-solarized scala-mode projectile helm magit flycheck-pycheckers flycheck-indicator flycheck-mypy flycheck-color-mode-line flymake-python-pyflakes markdown-mode solarized-theme zenburn-theme gruvbox-theme dracula-theme elpy use-package))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pos-tip-background-color "#4F4F4F")
  '(pos-tip-foreground-color "#FFFFEF")
+ '(projectile-use-git-grep nil)
  '(scroll-bar-mode nil)
  '(show-trailing-whitespace t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#7F9F7F" "#4F4F4F" 0.2))
@@ -170,6 +181,11 @@
           (re-search-forward "[ \t\r\n]+" nil t)
           (replace-match "" nil nil))))))
 (global-set-key (kbd "M-\\") 'kill-whitespace)
+
+;; Set the PATH appropriately for Mac OS X Homebrew users
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 
 (provide 'emacs)
 ;;; .emacs ends here
