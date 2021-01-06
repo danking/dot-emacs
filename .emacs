@@ -85,6 +85,7 @@
  '(pos-tip-foreground-color "#FFFFEF")
  '(projectile-use-git-grep nil)
  '(scroll-bar-mode nil)
+ '(server-mode t)
  '(show-trailing-whitespace t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#7F9F7F" "#4F4F4F" 0.2))
  '(tab-width 2)

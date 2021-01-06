@@ -63,3 +63,15 @@ Magit is a remarkably powerful tool for interacting with Git. It's also a bit co
 opening the status buffer with `M-x magit`. On that buffer, press `?` to get a help page. On this
 buffer, most keypresses are a command. For example, `f u` fetches from the upstream (in my case,
 origin).
+
+
+### Opening Files from the Command Line
+This configuration of Emacs always starts in server-mode. From the command line you can run:
+
+```
+emacsclient file
+```
+
+And `file` will be opened in the already running GUI Emacs. I recommend setting your `EDITOR`
+environment variable to `emacsclient`. If `EDITOR` is set to `emacsclient`, git will open commit
+messages in Emacs.
