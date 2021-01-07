@@ -80,7 +80,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(ripgrep ein color-theme-sanityinc-solarized scala-mode projectile helm magit flycheck-pycheckers flycheck-indicator flycheck-mypy flycheck-color-mode-line flymake-python-pyflakes markdown-mode solarized-theme zenburn-theme gruvbox-theme dracula-theme elpy use-package))
+   '(magit-popup ghub ripgrep ein color-theme-sanityinc-solarized scala-mode projectile helm magit flycheck-pycheckers flycheck-indicator flycheck-mypy flycheck-color-mode-line flymake-python-pyflakes markdown-mode solarized-theme zenburn-theme gruvbox-theme dracula-theme elpy use-package))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pos-tip-background-color "#4F4F4F")
  '(pos-tip-foreground-color "#FFFFEF")
