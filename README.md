@@ -80,3 +80,14 @@ emacsclient file
 And `file` will be opened in the already running GUI Emacs. I recommend setting your `EDITOR`
 environment variable to `emacsclient`. If `EDITOR` is set to `emacsclient`, git will open commit
 messages in Emacs.
+
+### etags
+Etags indexes source files by the symbols the use or define. It can handle C, C++, Python, and
+others. You have to manually refresh the TAGS file:
+
+```
+cd /path/to/hail-repo
+find -E . -regex ".*\.(py|scala|c|cpp|h|hpp)" -print  | grep -v flycheck | grep -v '^\.#' | etags -
+```
+
+If you have an up-to-date TAGS file then you can do project-wide query replace with `C-c p r`.
