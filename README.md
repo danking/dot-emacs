@@ -30,7 +30,12 @@ Projectile is a suite of project-focused commands. Projectile considers every gi
 "project".
 
 - `C-c p h` performs a fuzzy-search for files in this project.
-- `C-c p s r` performs a `ripgrep` search over all files in this project.
+- `C-c p s r` performs a `ripgrep` search over all files in this project. If your cursor is sitting
+  on a "word" (basically any sequence of non-whitespace, non-quote characters), `C-c p s r RET` will
+  search for that word. This is how I do project-wide search for uses of a Python constant.
+- `C-c p c` "compiles" the current project. If I'm working on Python code, the first time I open a
+  Python file I run `C-c p c make -j16 check-all RET` and then every subsequent time I want to check
+  the syntax of the whole project, I can just run `C-c p c RET`
 
 ### Python
 When editing Python, there are three important Emacs packages: `elpy`, `flycheck`, and `pyvenv`.

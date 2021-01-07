@@ -9,6 +9,7 @@
    ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#657b83"])
  '(beacon-color "#d33682")
  '(c-basic-offset 2)
+ '(column-number-mode t)
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(compilation-message-face 'default)
@@ -33,7 +34,7 @@
  '(flycheck-pylintrc nil)
  '(frame-background-mode 'dark)
  '(global-flycheck-mode t)
- '(global-whitespace-mode t)
+ '(global-whitespace-mode nil)
  '(grep-command "rg --no-heading -nHr --null -e ")
  '(grep-find-command
    '("find . -type f -exec rg --no-heading -nHr --null -e \\{\\} +" . 42))
@@ -117,6 +118,7 @@
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
    '(unspecified "#3F3F3F" "#4F4F4F" "#9f5c5c" "#CC9393" "#488249" "#7F9F7F" "#b6a576" "#F0DFAF" "#57a2a4" "#8CD0D3" "#aa5790" "#DC8CC3" "#5dacaf" "#93E0E3" "#DCDCCC" "#6F6F6F"))
+ '(whitespace-global-modes '(not eww))
  '(whitespace-style '(trailing tabs lines empty tab-mark))
  '(xterm-color-names
    ["#4F4F4F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#fffff6"])
