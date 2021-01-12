@@ -35,11 +35,10 @@
  '(frame-background-mode 'dark)
  '(global-flycheck-mode t)
  '(global-whitespace-mode nil)
- '(grep-command "rg --no-heading -nHr --null -e ")
- '(grep-find-command
-   '("find . -type f -exec rg --no-heading -nHr --null -e \\{\\} +" . 42))
+ '(grep-command
+   "rg --no-heading --line-number --with-filename --color=always -- ")
  '(grep-find-template
-   "find <D> <X> -type f <F> -exec rg <C> --no-heading -nH --null -e <R> \\{\\} +")
+   "find <D> <X> -type f <F> -exec rg <C> --no-heading --line-number --with-filename -e <R> \\{\\} +")
  '(grep-find-use-xargs 'exec-plus)
  '(grep-highlight-matches nil)
  '(grep-template "rg <X> <C> --no-heading -nH --null -e <R> <F>")
@@ -84,6 +83,9 @@
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pos-tip-background-color "#4F4F4F")
  '(pos-tip-foreground-color "#FFFFEF")
+ '(projectile-tags-backend 'etags-select)
+ '(projectile-tags-command
+   "find -E . -regex \".*\\.(py|scala|c|cpp|h|hpp)\" -print  | grep -v flycheck | grep -v '^\\.#' | etags -")
  '(projectile-use-git-grep nil)
  '(scroll-bar-mode nil)
  '(server-mode t)
