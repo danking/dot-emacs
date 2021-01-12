@@ -63,6 +63,30 @@ markers (e.g. squiggly red lines) on code flagged by the syntax checkers. You ca
 the current buffer with `C-c ! l`.
 
 
+### Scala
+Scala support is a work in progress.
+
+You need to install metals. Metals provides IDE-like features for Scala via the "Language Server
+Protocol". Coursier is a Scala package manager which can install metals for you. Use coursier to
+install metals:
+
+```
+# Make sure to use coursier v1.1.0-M9 or newer.
+curl -L -o coursier https://git.io/coursier-cli
+chmod +x coursier
+./coursier bootstrap \
+  --java-opt -Xss4m \
+  --java-opt -Xms100m \
+  --java-opt -Dmetals.client=emacs \
+  org.scalameta:metals_2.12:0.9.8 \
+  -r bintray:scalacenter/releases \
+  -r sonatype:snapshots \
+  -o /usr/local/bin/metals-emacs -f
+```
+
+For now, you must manually start lsp when you're editing Scala code: `M-x lsp`.
+
+
 ### Magit
 Magit is a remarkably powerful tool for interacting with Git. It's also a bit complicated. Start by
 opening the status buffer with `M-x magit`. On that buffer, press `?` to get a help page. On this
