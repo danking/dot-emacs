@@ -84,7 +84,8 @@ chmod +x coursier
   -o /usr/local/bin/metals-emacs -f
 ```
 
-For now, you must manually start lsp when you're editing Scala code: `M-x lsp`.
+LSP should automatically start when you open a .scala file. Use `M-.` to jump to the definition of
+the symbol at point. Use `M-,` to move backward through the stack of previous jumps.
 
 
 ### Magit

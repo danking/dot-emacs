@@ -71,6 +71,8 @@
    '("#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F"))
  '(hl-paren-colors '("#93E0E3" "#F0DFAF" "#8CD0D3" "#bbb0cb" "#7F9F7F"))
  '(indent-tabs-mode nil)
+ '(lsp-file-watch-ignored-directories
+   '("[/\\\\]\\.git\\'" "[/\\\\]\\.hg\\'" "[/\\\\]\\.bzr\\'" "[/\\\\]_darcs\\'" "[/\\\\]\\.svn\\'" "[/\\\\]_FOSSIL_\\'" "[/\\\\]\\.idea\\'" "[/\\\\]\\.ensime_cache\\'" "[/\\\\]\\.eunit\\'" "[/\\\\]node_modules" "[/\\\\]\\.fslckout\\'" "[/\\\\]\\.tox\\'" "[/\\\\]dist\\'" "[/\\\\]dist-newstyle\\'" "[/\\\\]\\.stack-work\\'" "[/\\\\]\\.bloop\\'" "[/\\\\]\\.metals\\'" "[/\\\\]target\\'" "[/\\\\]\\.ccls-cache\\'" "[/\\\\]\\.vscode\\'" "[/\\\\]\\.deps\\'" "[/\\\\]build-aux\\'" "[/\\\\]autom4te.cache\\'" "[/\\\\]\\.reference\\'" "[/\\\\]\\.lsp\\'" "[/\\\\]\\.clj-kondo\\'" "[/\\\\]\\.cpcache\\'" "[/\\\\]bin/Debug\\'" "[/\\\\]obj\\'" "[/\\\\]python\\'" "[/\\\\]project\\'" "[/\\\\]build\\'" "[/\\\\]src/main/resources\\'" "[/\\\\]src/test/resources\\'" "[/\\\\].pytest_cache\\'" "\\.mypy_cache" "[/\\\\]\\.idea/'" "[/\\\\]\\.gradle/'" "[/\\\\]gradle/'"))
  '(lsp-ui-doc-border "#FFFFEF")
  '(menu-bar-mode nil)
  '(nrepl-message-colors
@@ -96,6 +98,7 @@
  '(term-default-fg-color "#DCDCCC")
  '(tool-bar-mode nil)
  '(transient-mark-mode t)
+ '(treemacs-filewatch-mode t)
  '(vc-annotate-background nil)
  '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map
@@ -201,6 +204,9 @@
 (dolist (hook '(c++-mode
                 python-mode))
   (add-hook hook (lambda () (flyspell-prog-mode))))
+;; enable LSP in Scala
+(add-hook 'scala-mode-hook 'lsp)
+
 
 (provide 'emacs)
 ;;; .emacs ends here
