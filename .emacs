@@ -13,6 +13,7 @@
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(compilation-message-face 'default)
+ '(css-indent-offset 2)
  '(cua-global-mark-cursor-color "#93E0E3")
  '(cua-normal-cursor-color "#DCDCCC")
  '(cua-overwrite-cursor-color "#F0DFAF")
@@ -23,6 +24,7 @@
  '(display-time-24hr-format t)
  '(display-time-day-and-date t)
  '(display-time-mode t)
+ '(elpy-formatter 'black)
  '(elpy-modules
    '(elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults))
  '(fci-rule-color "#073642")
@@ -82,7 +84,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(lsp-ui lsp-treemacs lsp-mode lsp-metals helm-projectile ggtags magit-popup ghub ripgrep ein color-theme-sanityinc-solarized scala-mode projectile helm magit flycheck-pycheckers flycheck-indicator flycheck-mypy flycheck-color-mode-line flymake-python-pyflakes markdown-mode solarized-theme zenburn-theme gruvbox-theme dracula-theme elpy use-package))
+   '(helm-rg lsp-ui lsp-treemacs lsp-mode lsp-metals helm-projectile ggtags magit-popup ghub ripgrep ein color-theme-sanityinc-solarized scala-mode projectile helm magit flycheck-pycheckers flycheck-indicator flycheck-mypy flycheck-color-mode-line flymake-python-pyflakes markdown-mode solarized-theme zenburn-theme gruvbox-theme dracula-theme elpy use-package))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pos-tip-background-color "#4F4F4F")
  '(pos-tip-foreground-color "#FFFFEF")
@@ -196,7 +198,8 @@
 (setq-default exec-path (append exec-path '("/usr/local/bin")))
 
 ;; Enable spellcheck in varoius plain text documents
-(dolist (hook '(text-mode-hook
+(dolist (hook '(fundamental-mode
+                text-mode-hook
                 markdown-mode
                 change-log-mode-hook
                 log-edit-mode-hook))

@@ -62,6 +62,8 @@ Flycheck is an Emacs package for on-the-fly syntax, type, etc. checking. You sho
 markers (e.g. squiggly red lines) on code flagged by the syntax checkers. You can list all errors in
 the current buffer with `C-c ! l`.
 
+Elpy will automatically format your code using Black.
+
 
 ### Scala
 Scala support is a work in progress.
