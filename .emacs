@@ -169,6 +169,10 @@
 
 ;; Enable Python IDE-like functionality.
 (elpy-enable)
+;; Use Black to format Python code on save
+(add-hook 'elpy-mode-hook (lambda ()
+                            (add-hook 'before-save-hook
+                                      'elpy-format-code nil t)))
 
 ;; `kill-whitespace` removes a sequences of whitespace. Consider this:
 ;;
