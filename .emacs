@@ -9,6 +9,7 @@
    ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#657b83"])
  '(beacon-color "#d33682")
  '(c-basic-offset 2)
+ '(case-fold-search t)
  '(column-number-mode t)
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
@@ -27,6 +28,7 @@
  '(elpy-formatter 'black)
  '(elpy-modules
    '(elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults))
+ '(exec-path-from-shell-variables '("PATH" "MANPATH" "JAVA_HOME"))
  '(fci-rule-color "#073642")
  '(fill-column 100)
  '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
@@ -54,6 +56,9 @@
  '(helm-locate-fuzzy-match t)
  '(helm-mode t)
  '(helm-mode-fuzzy-match t)
+ '(helm-projectile-sources-list
+   '(helm-source-projectile-buffers-list helm-source-projectile-files-list helm-source-projectile-projects))
+ '(helm-projectile-truncate-lines nil)
  '(highlight-changes-colors '("#DC8CC3" "#bbb0cb"))
  '(highlight-symbol-colors
    '("#680f63eb5998" "#54db645064d0" "#6097535f5322" "#5c2859a95fa1" "#4ede55f24ea4" "#64dd5979525e" "#530060d16157"))
@@ -72,26 +77,40 @@
  '(hl-fg-colors
    '("#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F" "#3F3F3F"))
  '(hl-paren-colors '("#93E0E3" "#F0DFAF" "#8CD0D3" "#bbb0cb" "#7F9F7F"))
+ '(ibuffer-case-fold-search t)
  '(indent-tabs-mode nil)
+ '(js-indent-level 2)
+ '(lsp-clients-python-library-directories '("/usr/" "/usr/local/"))
  '(lsp-enable-indentation nil)
  '(lsp-file-watch-ignored-directories
-   '("[/\\\\]\\.git\\'" "[/\\\\]\\.hg\\'" "[/\\\\]\\.bzr\\'" "[/\\\\]_darcs\\'" "[/\\\\]\\.svn\\'" "[/\\\\]_FOSSIL_\\'" "[/\\\\]\\.idea\\'" "[/\\\\]\\.ensime_cache\\'" "[/\\\\]\\.eunit\\'" "[/\\\\]node_modules" "[/\\\\]\\.fslckout\\'" "[/\\\\]\\.tox\\'" "[/\\\\]dist\\'" "[/\\\\]dist-newstyle\\'" "[/\\\\]\\.stack-work\\'" "[/\\\\]\\.bloop\\'" "[/\\\\]\\.metals\\'" "[/\\\\]target\\'" "[/\\\\]\\.ccls-cache\\'" "[/\\\\]\\.vscode\\'" "[/\\\\]\\.deps\\'" "[/\\\\]build-aux\\'" "[/\\\\]autom4te.cache\\'" "[/\\\\]\\.reference\\'" "[/\\\\]\\.lsp\\'" "[/\\\\]\\.clj-kondo\\'" "[/\\\\]\\.cpcache\\'" "[/\\\\]bin/Debug\\'" "[/\\\\]obj\\'" "[/\\\\]python\\'" "[/\\\\]project\\'" "[/\\\\]build\\'" "[/\\\\]src/main/resources\\'" "[/\\\\]src/test/resources\\'" "[/\\\\].pytest_cache\\'" "\\.mypy_cache" "[/\\\\]\\.idea/'" "[/\\\\]\\.gradle/'" "[/\\\\]gradle/'"))
+   '("[/\\\\]\\.git\\'" "[/\\\\]\\.hg\\'" "[/\\\\]\\.bzr\\'" "[/\\\\]_darcs\\'" "[/\\\\]\\.svn\\'" "[/\\\\]_FOSSIL_\\'" "[/\\\\]\\.idea\\'" "[/\\\\]\\.ensime_cache\\'" "[/\\\\]\\.eunit\\'" "[/\\\\]node_modules" "[/\\\\]\\.fslckout\\'" "[/\\\\]\\.tox\\'" "[/\\\\]dist\\'" "[/\\\\]dist-newstyle\\'" "[/\\\\]\\.stack-work\\'" "[/\\\\]\\.bloop\\'" "[/\\\\]\\.metals\\'" "[/\\\\]target\\'" "[/\\\\]\\.ccls-cache\\'" "[/\\\\]\\.vscode\\'" "[/\\\\]\\.deps\\'" "[/\\\\]build-aux\\'" "[/\\\\]autom4te.cache\\'" "[/\\\\]\\.reference\\'" "[/\\\\]\\.lsp\\'" "[/\\\\]\\.clj-kondo\\'" "[/\\\\]\\.cpcache\\'" "[/\\\\]bin/Debug\\'" "[/\\\\]obj\\'" "[/\\\\]python\\'" "[/\\\\]project\\'" "[/\\\\]build\\'" "[/\\\\]src/main/resources\\'" "[/\\\\]src/test/resources\\'" "[/\\\\].pytest_cache\\'" "\\.mypy_cache" "[/\\\\]\\.idea/'" "[/\\\\]\\.gradle/'" "[/\\\\]gradle/'" "/Users/dking/miniconda3"))
+ '(lsp-pyls-server-command '("pyls"))
+ '(lsp-signature-auto-activate '(:on-server-request))
  '(lsp-ui-doc-border "#FFFFEF")
+ '(lsp-ui-doc-enable nil)
  '(menu-bar-mode nil)
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#5b7300" "#b3c34d" "#0061a8" "#2aa198" "#d33682" "#6c71c4"))
+ '(org-agenda-files '("/Users/dking/projects/hail/todo.org"))
+ '(org-image-actual-width '(800))
+ '(org-modules
+   '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail org-tempo ol-w3m))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(helm-rg lsp-ui lsp-treemacs lsp-mode lsp-metals helm-projectile ggtags magit-popup ghub ripgrep ein color-theme-sanityinc-solarized scala-mode projectile helm magit flycheck-pycheckers flycheck-indicator flycheck-mypy flycheck-color-mode-line flymake-python-pyflakes markdown-mode solarized-theme zenburn-theme gruvbox-theme dracula-theme elpy use-package))
+   '(eglot dash lsp-pyright terraform-doc terraform-mode paredit helm-rg lsp-ui lsp-treemacs lsp-mode lsp-metals helm-projectile ggtags magit-popup ghub ripgrep ein color-theme-sanityinc-solarized scala-mode projectile helm magit flycheck-pycheckers flycheck-indicator flycheck-mypy flycheck-color-mode-line flymake-python-pyflakes markdown-mode solarized-theme zenburn-theme gruvbox-theme dracula-theme elpy use-package))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pos-tip-background-color "#4F4F4F")
  '(pos-tip-foreground-color "#FFFFEF")
+ '(projectile-globally-ignored-file-suffixes '(".log" "-log"))
+ '(projectile-globally-ignored-files '("TAGS" "test-log"))
+ '(projectile-mode t nil (projectile))
  '(projectile-tags-backend 'etags-select)
  '(projectile-tags-command
    "find -E . -regex \".*\\.(py|scala|c|cpp|h|hpp)\" -print  | grep -v flycheck | grep -v '^\\.#' | etags -")
  '(projectile-use-git-grep nil)
+ '(safe-local-variable-values '((lsp-clangd-binary-path . \.dist/llvm/bin/clangd)))
  '(scroll-bar-mode nil)
  '(server-mode t)
  '(show-trailing-whitespace t)
@@ -102,6 +121,7 @@
  '(tool-bar-mode nil)
  '(transient-mark-mode t)
  '(treemacs-filewatch-mode t)
+ '(use-dialog-box nil)
  '(vc-annotate-background nil)
  '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map
@@ -137,7 +157,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#3F3F3F" :foreground "#DCDCCC" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 240 :width normal :foundry "nil" :family "Iosevka")))))
 
 ;; Everytime you `M-x install-package RET foo RET`, `foo` is added to
 ;; `package-selected-packages` (see above in
@@ -149,6 +169,24 @@
     (let ()
       (package-refresh-contents)
       (package-install-selected-packages)))
+
+(exec-path-from-shell-initialize)
+(pyvenv-activate "~/miniconda3")
+;; ; for native comp https://xenodium.com/trying-out-gccemacs-on-macos/
+;; (if (and (fboundp 'native-comp-available-p)
+;;          (native-comp-available-p))
+;;     (progn
+;;       (message "Native comp is available")
+;;       (add-to-list 'exec-path (concat invocation-directory "bin") t)
+;;       (setenv "LIBRARY_PATH" (concat (getenv "LIBRARY_PATH")
+;;                                      (when (getenv "LIBRARY_PATH")
+;;                                        ":")
+;;                                      ;; This is where Homebrew puts gcc libraries.
+;;                                      (car (file-expand-wildcards
+;;                                            (expand-file-name "/usr/local/lib/gcc/11/*")))))
+;;       ;; Only set after LIBRARY_PATH can find gcc libraries.
+;;       (setq comp-deferred-compilation t))
+;;   (message "Native comp is *not* available"))
 
 (with-eval-after-load 'flycheck
   ;; Fancy flycheck indication in the mode line.
@@ -168,11 +206,46 @@
 
 
 ;; Enable Python IDE-like functionality.
-(elpy-enable)
+;; (elpy-enable)
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp))))  ; or lsp-deferred
+
+;; (lsp-register-client
+;;  (make-lsp-client
+;;   :new-connection (lsp-tramp-connection (lambda ()
+;;                                           (cons "pyright-langserver"
+;;                                                 lsp-pyright-langserver-command-args)))
+;;   :major-modes '(python-mode)
+;;   :remote? t
+;;   :server-id 'pyright-remote
+;;   :multi-root t
+;;   :priority 3
+;;   :initialization-options (lambda () (ht-merge (lsp-configuration-section "pyright")
+;;                                                (lsp-configuration-section "python")))
+;;   :initialized-fn (lambda (workspace)
+;;                     (with-lsp-workspace workspace
+;;                       (lsp--set-configuration
+;;                        (ht-merge (lsp-configuration-section "pyright")
+;;                                  (lsp-configuration-section "python")))))
+;;   :download-server-fn (lambda (_client callback error-callback _update?)
+;;                         (lsp-package-ensure 'pyright callback error-callback))
+;;   :notification-handlers (lsp-ht ("pyright/beginProgress" 'lsp-pyright--begin-progress-callback)
+;;                                  ("pyright/reportProgress" 'lsp-pyright--report-progress-callback)
+;;                                  ("pyright/endProgress" 'lsp-pyright--end-progress-callback))))
+;; does not seem to work
+;; (lsp-register-client
+;;     (make-lsp-client :new-connection (lsp-tramp-connection "pyright")
+;;                      :major-modes '(python-mode)
+;;                      :remote? t
+;;                      :server-id 'pyright-remote))
+
 ;; Use Black to format Python code on save
-(add-hook 'elpy-mode-hook (lambda ()
-                            (add-hook 'before-save-hook
-                                      'elpy-format-code nil t)))
+;; (add-hook 'elpy-mode-hook (lambda ()
+;;                             (add-hook 'before-save-hook
+;;                                       'elpy-format-code nil t)))
 
 ;; `kill-whitespace` removes a sequences of whitespace. Consider this:
 ;;
@@ -200,6 +273,9 @@
 ;; Set the PATH appropriately for Mac OS X Homebrew users
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq-default exec-path (append exec-path '("/usr/local/bin")))
+;; Set the PATH for llvm
+(setenv "PATH" (concat "/Users/dking/projects/hail/query/.dist/llvm/bin:" (getenv "PATH")))
+(setq-default exec-path (cons "/Users/dking/projects/hail/query/.dist/llvm/bin" exec-path))
 
 ;; Enable spellcheck in varoius plain text documents
 (dolist (hook '(fundamental-mode
@@ -215,6 +291,15 @@
 ;; enable LSP in Scala
 (add-hook 'scala-mode-hook 'lsp)
 
+(add-to-list 'load-path "/Users/dking/projects/llvm-project/llvm/utils/emacs")
+(require 'llvm-mode)
+(require 'tablegen-mode)
+(require 'eglot)
+
+(add-to-list 'eglot-server-programs
+             '(tablegen-mode . ("tblgen-lsp-server" "--tablegen-compilation-database" "/Users/dking/projects/hail/query/build/tablegen_compile_commands.yml")))
+(add-to-list 'eglot-server-programs
+             '(mlir-mode . ("mlir-lsp-server")))
 
 (provide 'emacs)
 ;;; .emacs ends here
